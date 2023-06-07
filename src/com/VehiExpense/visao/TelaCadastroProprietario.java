@@ -77,14 +77,23 @@ public class TelaCadastroProprietario extends javax.swing.JFrame {
         jButtonCadastroPJ.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jButtonCadastroPJ.setForeground(new java.awt.Color(0, 0, 0));
         jButtonCadastroPJ.setLabel("Cadastrar como pessoa jurídica");
+        jButtonCadastroPJ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastroPJActionPerformed(evt);
+            }
+        });
 
         jButtonCadastoPF.setBackground(new java.awt.Color(204, 204, 204));
         jButtonCadastoPF.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jButtonCadastoPF.setForeground(new java.awt.Color(0, 0, 0));
         jButtonCadastoPF.setLabel("Cadastrar como pessoa física");
+        jButtonCadastoPF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastoPFActionPerformed(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/VehiExpense/imagens/logo_arc_nova-removebg-preview (1).png"))); // NOI18N
-        jLabel2.setPreferredSize(new java.awt.Dimension(160, 105));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -99,7 +108,7 @@ public class TelaCadastroProprietario extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2)
                 .addGap(327, 327, 327))
         );
         jPanel2Layout.setVerticalGroup(
@@ -107,7 +116,7 @@ public class TelaCadastroProprietario extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonCadastoPF, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -128,6 +137,20 @@ public class TelaCadastroProprietario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonCadastoPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastoPFActionPerformed
+        // TODO add your handling code here:
+        TelaCadastroProprietarioPF frame = new TelaCadastroProprietarioPF();
+        frame.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButtonCadastoPFActionPerformed
+
+    private void jButtonCadastroPJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastroPJActionPerformed
+        // TODO add your handling code here:
+        TelaCadastroProprietarioPJ frame =new TelaCadastroProprietarioPJ();
+        frame.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButtonCadastroPJActionPerformed
 
     /**
      * @param args the command line arguments
