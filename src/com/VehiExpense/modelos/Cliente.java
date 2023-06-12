@@ -9,7 +9,7 @@ package com.VehiExpense.modelos;
  * @author aluno
  */
 public class Cliente{
-    private int idClientePF =0;
+    private int idCliente =0;
     private String nome = "";
     private String email = "";
     private String CPF = "";
@@ -18,18 +18,18 @@ public class Cliente{
     }
     
     public Cliente(int idClientePF, String nome, String email,String CPF) {
-        this.idClientePF = idClientePF;
+        this.idCliente = idClientePF;
         this.nome = nome;
         this.email = email;
         this.CPF=CPF;
     }
 
     public int getIdClientePF() {
-        return idClientePF;
+        return idCliente;
     }
 
     public void setIdClientePF(int idClientePF) {
-        this.idClientePF = idClientePF;
+        this.idCliente = idClientePF;
     }
 
     public String getNome() {
@@ -54,6 +54,11 @@ public class Cliente{
 
     public void setCPF(String CPF) {
         this.CPF = CPF;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "idClientePF=" + idCliente + ", nome=" + nome + ", email=" + email + ", CPF=" + CPF + '}';
     }
     
     
