@@ -177,9 +177,7 @@ public class TelaCategoriaDeGastos extends javax.swing.JPanel {
 
     private void jButtonCadastroPJActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastroPJActionPerformed
         // TODO add your handling code here:
-        TelaCadastroProprietarioPJ frame =new TelaCadastroProprietarioPJ();
-        frame.setVisible(true);
-        this.setVisible(false);
+       
     }//GEN-LAST:event_jButtonCadastroPJActionPerformed
 
     private void jButtonCadastoPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastoPFActionPerformed
