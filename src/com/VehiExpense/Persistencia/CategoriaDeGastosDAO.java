@@ -13,7 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoriaDeGastosDAO {
+public class CategoriaDeGastosDAO implements ICategoriaDeGastosDAO{
 
 
     private Connection conexao = null;
@@ -23,10 +23,9 @@ public class CategoriaDeGastosDAO {
     }
 
     public void inserir(CategoriaDeGastos categoria) throws SQLException {
-        String sql = "INSERT INTO CategoriaDeGastos (Id, descricaoMarca) VALUES (?, ?)";
+        String sql = "INSERT INTO CategoriaDeGastos (descricaoMarca) VALUES (?)";
         try ( PreparedStatement stmt = conexao.prepareStatement(sql)) {
-            stmt.setInt(1, categoria.getId());
-            stmt.setString(2, categoria.getDescricaoMarca());
+            stmt.setString(1, categoria.getDescricaoMarca());
             stmt.executeUpdate();
         }
     }

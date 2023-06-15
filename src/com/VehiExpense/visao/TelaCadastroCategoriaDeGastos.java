@@ -143,7 +143,7 @@ public class TelaCadastroCategoriaDeGastos extends javax.swing.JFrame {
     private void jButtonCadastoPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastoPFActionPerformed
         try {
             CategoriaDeGastos categoriaDeGastos = null;
-            categoriaDeGastos = new CategoriaDeGastos(0, jTextFieldCategoriaDeGastos.getText());
+            categoriaDeGastos = new CategoriaDeGastos(0,jTextFieldCategoriaDeGastos.getText());
 
             ICategoriaDeGastosDAO categoriaDeGastosBD = null;
             categoriaDeGastosBD = new CategoriaDeGastosDAO();
