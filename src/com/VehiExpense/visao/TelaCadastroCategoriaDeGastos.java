@@ -6,10 +6,9 @@ package com.VehiExpense.visao;
 
 
 import com.VehiExpense.Persistencia.CategoriaDeGastosDAO;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.util.List;
+import com.VehiExpense.Persistencia.ICategoriaDeGastosDAO;
+import com.VehiExpense.modelos.CategoriaDeGastos;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,18 +22,6 @@ public class TelaCadastroCategoriaDeGastos extends javax.swing.JFrame {
     public TelaCadastroCategoriaDeGastos() {
         initComponents();
         // Estabeleça a conexão com o banco de dados
-        Connection connection = null;
-        try {
-            String url = "jdbc:postgresql://localhost:5432/seu_banco_de_dados";
-            String user = "seu_usuario";
-            String password = "sua_senha";
-            connection = DriverManager.getConnection(url, user, password);
-
-            // Crie uma instância do CategoriaDeGastosDAO
-            categoriaDeGastosDAO = new CategoriaDeGastosDAO(connection);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
     /**
@@ -52,7 +39,7 @@ public class TelaCadastroCategoriaDeGastos extends javax.swing.JFrame {
         jButtonCadastoPF = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldCategoriaDeGastos = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,7 +48,6 @@ public class TelaCadastroCategoriaDeGastos extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Cadastro De Categoria De Gastos");
 
@@ -81,18 +67,21 @@ public class TelaCadastroCategoriaDeGastos extends javax.swing.JFrame {
 
         jButtonCadastoPF.setBackground(new java.awt.Color(204, 204, 204));
         jButtonCadastoPF.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jButtonCadastoPF.setForeground(new java.awt.Color(0, 0, 0));
         jButtonCadastoPF.setText("Cadastrar");
+        jButtonCadastoPF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastoPFActionPerformed(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/VehiExpense/imagens/logo_arc_nova-removebg-preview (1).png"))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Categoria Do Gasto");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldCategoriaDeGastos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTextFieldCategoriaDeGastosActionPerformed(evt);
             }
         });
 
@@ -109,7 +98,7 @@ public class TelaCadastroCategoriaDeGastos extends javax.swing.JFrame {
                 .addGap(105, 105, 105)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextFieldCategoriaDeGastos, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -125,7 +114,7 @@ public class TelaCadastroCategoriaDeGastos extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldCategoriaDeGastos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addComponent(jButtonCadastoPF, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(171, 171, 171))
@@ -147,9 +136,22 @@ public class TelaCadastroCategoriaDeGastos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTextFieldCategoriaDeGastosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCategoriaDeGastosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jTextFieldCategoriaDeGastosActionPerformed
+
+    private void jButtonCadastoPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastoPFActionPerformed
+        try {
+            CategoriaDeGastos categoriaDeGastos = null;
+            categoriaDeGastos = new CategoriaDeGastos(0, jTextFieldCategoriaDeGastos.getText());
+
+            ICategoriaDeGastosDAO categoriaDeGastosBD = null;
+            categoriaDeGastosBD = new CategoriaDeGastosDAO();
+            categoriaDeGastosBD.inserir(categoriaDeGastos);
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro.getMessage());
+        }
+    }//GEN-LAST:event_jButtonCadastoPFActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,6 +195,6 @@ public class TelaCadastroCategoriaDeGastos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextFieldCategoriaDeGastos;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,10 +4,19 @@
  */
 package com.VehiExpense.Persistencia;
 
+import com.VehiExpense.modelos.CategoriaDeGastos;
+import java.sql.SQLException;
+import java.util.List;
+
 /**
  *
  * @author aluno
  */
 public interface ICategoriaDeGastosDAO {
+    public void inserir(CategoriaDeGastos categoria) throws SQLException;
+    public void atualizar(CategoriaDeGastos categoria) throws SQLException;
+    public void excluir(int id) throws SQLException;
+    public CategoriaDeGastos buscarPorId(int id) throws SQLException;
+    public List<CategoriaDeGastos> listarTodos() throws SQLException;
     
 }
