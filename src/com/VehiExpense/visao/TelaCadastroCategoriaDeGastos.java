@@ -21,6 +21,7 @@ public class TelaCadastroCategoriaDeGastos extends javax.swing.JFrame {
      */
     public TelaCadastroCategoriaDeGastos() {
         initComponents();
+        setLocationRelativeTo(null);
         // Estabeleça a conexão com o banco de dados
     }
 
@@ -148,6 +149,7 @@ public class TelaCadastroCategoriaDeGastos extends javax.swing.JFrame {
             ICategoriaDeGastosDAO categoriaDeGastosBD = null;
             categoriaDeGastosBD = new CategoriaDeGastosDAO();
             categoriaDeGastosBD.inserir(categoriaDeGastos);
+            JOptionPane.showMessageDialog(this,"Categoria de gastos cadastrada com sucesso!");
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro.getMessage());
         }

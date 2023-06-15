@@ -23,7 +23,7 @@ public class CategoriaDeGastosDAO implements ICategoriaDeGastosDAO{
     }
 
     public void inserir(CategoriaDeGastos categoria) throws SQLException {
-        String sql = "INSERT INTO CategoriaDeGastos (descricaoMarca) VALUES (?)";
+        String sql = "INSERT INTO CategoriaDeGastos (descricaoCategoriaDeGastos) VALUES (?)";
         try ( PreparedStatement stmt = conexao.prepareStatement(sql)) {
             stmt.setString(1, categoria.getDescricaoMarca());
             stmt.executeUpdate();
@@ -31,7 +31,7 @@ public class CategoriaDeGastosDAO implements ICategoriaDeGastosDAO{
     }
 
     public void atualizar(CategoriaDeGastos categoria) throws SQLException {
-        String sql = "UPDATE CategoriaDeGastos SET descricaoMarca = ? WHERE Id = ?";
+        String sql = "UPDATE CategoriaDeGastos SET descricaoCategoriaDeGastos = ? WHERE Id = ?";
         try ( PreparedStatement stmt = conexao.prepareStatement(sql)) {
             stmt.setString(1, categoria.getDescricaoMarca());
             stmt.setInt(2, categoria.getId());
@@ -55,7 +55,7 @@ public class CategoriaDeGastosDAO implements ICategoriaDeGastosDAO{
                 if (rs.next()) {
                     CategoriaDeGastos categoria = new CategoriaDeGastos();
                     categoria.setId(rs.getInt("Id"));
-                    categoria.setDescricaoMarca(rs.getString("descricaoMarca"));
+                    categoria.setDescricaoMarca(rs.getString("descricaoCategoriaDeGastos"));
                     return categoria;
                 }
             }
@@ -70,7 +70,7 @@ public class CategoriaDeGastosDAO implements ICategoriaDeGastosDAO{
             while (rs.next()) {
                 CategoriaDeGastos categoria = new CategoriaDeGastos();
                 categoria.setId(rs.getInt("Id"));
-                categoria.setDescricaoMarca(rs.getString("descricaoMarca"));
+                categoria.setDescricaoMarca(rs.getString("descricaoCategoriaDeGastos"));
                 categorias.add(categoria);
             }
         }
