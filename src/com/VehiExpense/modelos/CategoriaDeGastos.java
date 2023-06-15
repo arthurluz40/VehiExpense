@@ -9,5 +9,31 @@ package com.VehiExpense.modelos;
  * @author aluno
  */
 public class CategoriaDeGastos {
-    
+    private int id;
+    private String descricaoMarca;
+
+    public CategoriaDeGastos() {
+    }
+
+    public CategoriaDeGastos(int id, String descricaoMarca) {
+        this.id = id;
+        this.descricaoMarca = descricaoMarca;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getDescricaoMarca() {
+        return descricaoMarca;
+    }
+
+    public void setDescricaoMarca(String descricaoMarca) {
+        this.descricaoMarca = descricaoMarca;
+    }
 }
+
