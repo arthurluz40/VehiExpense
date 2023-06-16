@@ -228,12 +228,12 @@ public class TelaCadastrarMarca1 extends javax.swing.JFrame {
     private void jButtonIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirActionPerformed
         try {
             Marca marca = null;
-            marca = new Marca(0,jTextFieldMarca.getText(), jTextFieldUrl.getText());
+            marca = new Marca(0, jTextFieldMarca.getText(), jTextFieldUrl.getText());
 
             IMarcaDAO marcaDB = null;
             marcaDB = new MarcaDAO();
             marcaDB.inserir(marca);
-            JOptionPane.showMessageDialog(this,"Marca cadastrada com sucesso!");
+            JOptionPane.showMessageDialog(this, "Marca cadastrada com sucesso!");
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro.getMessage());
         }

@@ -10,14 +10,14 @@ package com.VehiExpense.modelos;
  */
 public class CategoriaDeGastos {
     private int id;
-    private String descricaoMarca;
+    private String descricaoCategoriaDeGastos;
 
     public CategoriaDeGastos() {
     }
 
-    public CategoriaDeGastos(int id, String descricaoMarca) {
+    public CategoriaDeGastos(int id, String descricaoCategoriaDeGastos) {
         this.id = id;
-        this.descricaoMarca = descricaoMarca;
+        this.descricaoCategoriaDeGastos = descricaoCategoriaDeGastos;
     }
 
     public int getId() {
@@ -29,11 +29,11 @@ public class CategoriaDeGastos {
     }
 
     public String getDescricaoMarca() {
-        return descricaoMarca;
+        return descricaoCategoriaDeGastos;
     }
 
-    public void setDescricaoMarca(String descricaoMarca) {
-        this.descricaoMarca = descricaoMarca;
+    public void setDescricaoMarca(String descricaoCategoriaDeGastos) {
+        this.descricaoCategoriaDeGastos = descricaoCategoriaDeGastos;
     }
 }
 

@@ -6,6 +6,7 @@ package com.VehiExpense.visao;
 
 import com.VehiExpense.Persistencia.CategoriaDeGastosDAO;
 import com.VehiExpense.modelos.CategoriaDeGastos;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -24,7 +25,7 @@ public class TelaGastos extends javax.swing.JFrame {
         // Adicionar valores da enumeração ao JComboBox
         try {
     CategoriaDeGastosDAO categoriaDeGastosDAO = new CategoriaDeGastosDAO();
-    List<CategoriaDeGastos> categorias = categoriaDeGastosDAO.listarTodos();
+    ArrayList<CategoriaDeGastos> categorias = categoriaDeGastosDAO.listaCategoriaDeGastos();
 
     // Criar um vetor para armazenar as descrições das categorias
     String[] listaCombo = new String[categorias.size()];

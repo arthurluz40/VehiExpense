@@ -6,6 +6,7 @@ package com.VehiExpense.Persistencia;
 
 import com.VehiExpense.modelos.CategoriaDeGastos;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,6 +18,6 @@ public interface ICategoriaDeGastosDAO {
     public void atualizar(CategoriaDeGastos categoria) throws SQLException;
     public void excluir(int id) throws SQLException;
     public CategoriaDeGastos buscarPorId(int id) throws SQLException;
-    public List<CategoriaDeGastos> listarTodos() throws SQLException;
+    public ArrayList<CategoriaDeGastos> listaCategoriaDeGastos() throws SQLException;
     
 }

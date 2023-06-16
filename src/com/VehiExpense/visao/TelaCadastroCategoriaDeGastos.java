@@ -4,11 +4,13 @@
  */
 package com.VehiExpense.visao;
 
-
 import com.VehiExpense.Persistencia.CategoriaDeGastosDAO;
 import com.VehiExpense.Persistencia.ICategoriaDeGastosDAO;
 import com.VehiExpense.modelos.CategoriaDeGastos;
+import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -22,6 +24,14 @@ public class TelaCadastroCategoriaDeGastos extends javax.swing.JFrame {
     public TelaCadastroCategoriaDeGastos() {
         initComponents();
         setLocationRelativeTo(null);
+        try {
+            ICategoriaDeGastosDAO categoriaDeGastosBD = null;
+            categoriaDeGastosBD = new CategoriaDeGastosDAO();
+            atualizarGrid(categoriaDeGastosBD.listaCategoriaDeGastos());
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro.getMessage());
+        }
+
         // Estabeleça a conexão com o banco de dados
     }
 
@@ -37,10 +47,13 @@ public class TelaCadastroCategoriaDeGastos extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButtonCadastoPF = new javax.swing.JButton();
+        jButtonCadastrarCategoriaDeGastos = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jTextFieldCategoriaDeGastos = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableCategoriaDeGasto = new javax.swing.JTable();
+        jButtonAtualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,12 +79,12 @@ public class TelaCadastroCategoriaDeGastos extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        jButtonCadastoPF.setBackground(new java.awt.Color(204, 204, 204));
-        jButtonCadastoPF.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jButtonCadastoPF.setText("Cadastrar");
-        jButtonCadastoPF.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCadastrarCategoriaDeGastos.setBackground(new java.awt.Color(204, 204, 204));
+        jButtonCadastrarCategoriaDeGastos.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jButtonCadastrarCategoriaDeGastos.setText("Cadastrar");
+        jButtonCadastrarCategoriaDeGastos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCadastoPFActionPerformed(evt);
+                jButtonCadastrarCategoriaDeGastosActionPerformed(evt);
             }
         });
 
@@ -83,6 +96,28 @@ public class TelaCadastroCategoriaDeGastos extends javax.swing.JFrame {
         jTextFieldCategoriaDeGastos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldCategoriaDeGastosActionPerformed(evt);
+            }
+        });
+
+        jTableCategoriaDeGasto.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "ID", "Categoria De Gasto"
+            }
+        ));
+        jScrollPane1.setViewportView(jTableCategoriaDeGasto);
+
+        jButtonAtualizar.setBackground(new java.awt.Color(204, 204, 204));
+        jButtonAtualizar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jButtonAtualizar.setText("Atualizar");
+        jButtonAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAtualizarActionPerformed(evt);
             }
         });
 
@@ -103,8 +138,13 @@ public class TelaCadastroCategoriaDeGastos extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonCadastoPF, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(294, 294, 294))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButtonCadastrarCategoriaDeGastos, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(196, 196, 196))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,9 +156,13 @@ public class TelaCadastroCategoriaDeGastos extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jTextFieldCategoriaDeGastos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addComponent(jButtonCadastoPF, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(171, 171, 171))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonCadastrarCategoriaDeGastos, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(74, 74, 74))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -141,19 +185,26 @@ public class TelaCadastroCategoriaDeGastos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCategoriaDeGastosActionPerformed
 
-    private void jButtonCadastoPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastoPFActionPerformed
+    private void jButtonCadastrarCategoriaDeGastosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarCategoriaDeGastosActionPerformed
         try {
             CategoriaDeGastos categoriaDeGastos = null;
-            categoriaDeGastos = new CategoriaDeGastos(0,jTextFieldCategoriaDeGastos.getText());
+            categoriaDeGastos = new CategoriaDeGastos(0, jTextFieldCategoriaDeGastos.getText());
 
             ICategoriaDeGastosDAO categoriaDeGastosBD = null;
             categoriaDeGastosBD = new CategoriaDeGastosDAO();
             categoriaDeGastosBD.inserir(categoriaDeGastos);
-            JOptionPane.showMessageDialog(this,"Categoria de gastos cadastrada com sucesso!");
+            JOptionPane.showMessageDialog(this, "Categoria de gastos cadastrada com sucesso!");
+
+            atualizarGrid(categoriaDeGastosBD.listaCategoriaDeGastos());
+
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro.getMessage());
         }
-    }//GEN-LAST:event_jButtonCadastoPFActionPerformed
+    }//GEN-LAST:event_jButtonCadastrarCategoriaDeGastosActionPerformed
+
+    private void jButtonAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAtualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,13 +241,33 @@ public class TelaCadastroCategoriaDeGastos extends javax.swing.JFrame {
         });
     }
 
+    private void atualizarGrid(ArrayList<CategoriaDeGastos> listaCategoriaDeGastos) {
+        try {
+            DefaultTableModel model = (DefaultTableModel) jTableCategoriaDeGasto.getModel();
+            model.setNumRows(0);
+            for (int pos = 0; pos < listaCategoriaDeGastos.size(); pos++) {
+                CategoriaDeGastos categoriaDeGastos = listaCategoriaDeGastos.get(pos);
+                String[] linha = new String[2];
+                linha[0] = categoriaDeGastos.getId() + "";
+                linha[1] = categoriaDeGastos.getDescricaoMarca();
+
+                model.addRow(linha);
+            }
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, erro.getMessage());
+        }
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonCadastoPF;
+    private javax.swing.JButton jButtonAtualizar;
+    private javax.swing.JButton jButtonCadastrarCategoriaDeGastos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableCategoriaDeGasto;
     private javax.swing.JTextField jTextFieldCategoriaDeGastos;
     // End of variables declaration//GEN-END:variables
 }

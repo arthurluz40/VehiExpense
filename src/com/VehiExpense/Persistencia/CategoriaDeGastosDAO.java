@@ -13,8 +13,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoriaDeGastosDAO implements ICategoriaDeGastosDAO{
-
+public class CategoriaDeGastosDAO implements ICategoriaDeGastosDAO {
 
     private Connection conexao = null;
 
@@ -63,8 +62,9 @@ public class CategoriaDeGastosDAO implements ICategoriaDeGastosDAO{
         return null;
     }
 
-    public List<CategoriaDeGastos> listarTodos() throws SQLException {
-        List<CategoriaDeGastos> categorias = new ArrayList<>();
+    @Override
+    public ArrayList<CategoriaDeGastos> listaCategoriaDeGastos() throws SQLException {
+        ArrayList<CategoriaDeGastos> categorias = new ArrayList<>();
         String sql = "SELECT * FROM CategoriaDeGastos";
         try ( PreparedStatement stmt = conexao.prepareStatement(sql);  ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
