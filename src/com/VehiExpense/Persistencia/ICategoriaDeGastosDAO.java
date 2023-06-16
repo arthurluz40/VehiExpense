@@ -16,7 +16,7 @@ import java.util.List;
 public interface ICategoriaDeGastosDAO {
     public void inserir(CategoriaDeGastos categoria) throws SQLException;
     public void atualizar(CategoriaDeGastos categoria) throws SQLException;
-    public void excluir(int id) throws SQLException;
+    public void excluir(CategoriaDeGastos categoria) throws SQLException;
     public CategoriaDeGastos buscarPorId(int id) throws SQLException;
     public ArrayList<CategoriaDeGastos> listaCategoriaDeGastos() throws SQLException;
     

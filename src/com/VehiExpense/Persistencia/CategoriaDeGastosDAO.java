@@ -38,10 +38,11 @@ public class CategoriaDeGastosDAO implements ICategoriaDeGastosDAO {
         }
     }
 
-    public void excluir(int id) throws SQLException {
-        String sql = "DELETE FROM CategoriaDeGastos WHERE Id = ?";
+    public void excluir(CategoriaDeGastos categoria) throws SQLException {
+        String sql = "DELETE FROM CategoriaDeGastos WHERE Id = ? AND descricaoCategoriaDeGastos = ?";
         try ( PreparedStatement stmt = conexao.prepareStatement(sql)) {
-            stmt.setInt(1, id);
+            stmt.setInt(1, categoria.getId());
+            stmt.setString(2, categoria.getDescricaoCategoriaDeGasto());
             stmt.executeUpdate();
         }
     }
