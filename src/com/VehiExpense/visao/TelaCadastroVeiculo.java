@@ -47,12 +47,12 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel2.setBackground(new java.awt.Color(84, 154, 141));
+        jPanel2.setPreferredSize(new java.awt.Dimension(800, 600));
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Cadastro Veículo");
 
@@ -60,7 +60,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 811, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,19 +73,15 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/VehiExpense/imagens/logo_arc_nova-removebg-preview (1).png"))); // NOI18N
 
         jLabelEmail.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelEmail.setForeground(new java.awt.Color(0, 0, 0));
         jLabelEmail.setText("Placa");
 
         jLabelCNPJ.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelCNPJ.setForeground(new java.awt.Color(0, 0, 0));
         jLabelCNPJ.setText("Marca");
 
         jLabelRazaoSocial.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelRazaoSocial.setForeground(new java.awt.Color(0, 0, 0));
         jLabelRazaoSocial.setText("Modelo");
 
         jLabelRazaoSocial1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelRazaoSocial1.setForeground(new java.awt.Color(0, 0, 0));
         jLabelRazaoSocial1.setText("Ano");
 
         jLabelRazaoSocial2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -93,7 +89,6 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         jLabelRazaoSocial2.setText("Situação");
 
         jLabelRazaoSocial3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelRazaoSocial3.setForeground(new java.awt.Color(0, 0, 0));
         jLabelRazaoSocial3.setText("Renavam");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -107,7 +102,9 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                         .addGap(249, 249, 249)
                         .addComponent(jTextFieldRazaoSocial2))
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(195, 195, 195)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< Updated upstream
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(326, 326, 326)
                                 .addComponent(jLabel2))
@@ -130,18 +127,43 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                                         .addComponent(jTextFieldRazaoSocial3)
                                         .addComponent(jTextFieldRazaoSocial4)
                                         .addComponent(jTextFieldRazaoSocial5)))))
+=======
+                            .addComponent(jLabelEmail)
+                            .addComponent(jLabelCNPJ)
+                            .addComponent(jLabelRazaoSocial)
+                            .addComponent(jLabelRazaoSocial1)
+                            .addComponent(jLabelRazaoSocial3))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextFieldCNPJ, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
+                                .addComponent(jTextFieldRazaoSocial)
+                                .addComponent(jTextFieldRazaoSocial1)
+                                .addComponent(jTextFieldRazaoSocial3)
+                                .addComponent(jTextFieldRazaoSocial4)))
+>>>>>>> Stashed changes
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(315, 315, 315))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< Updated upstream
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(0, 109, Short.MAX_VALUE)
                         .addComponent(jLabel2))
+=======
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+>>>>>>> Stashed changes
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< Updated upstream
                             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addContainerGap()
@@ -150,6 +172,13 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                                     .addComponent(jTextFieldRazaoSocial3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(32, 32, 32)
+=======
+                            .addComponent(jTextFieldRazaoSocial2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldRazaoSocial3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+>>>>>>> Stashed changes
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelEmail))
