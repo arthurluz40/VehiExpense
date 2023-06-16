@@ -11,6 +11,7 @@ import com.VehiExpense.modelos.Marca;
 import com.VehiExpense.modelos.Modelo;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -33,7 +34,7 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
 
             // Preencher o vetor com as descrições das categorias
             for (int i = 0; i < categorias.size(); i++) {
-                listaCombo[i] = categorias.get(i).getId() + categorias.get(i).getDescricao();
+                listaCombo[i] = categorias.get(i).getId() + "- " + categorias.get(i).getDescricao();
             }
 
             // Limpar a combobox antes de adicionar os novos itens
@@ -46,6 +47,14 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
         } catch (Exception e) {
             // Tratar exceção
             e.printStackTrace();
+        }
+        
+                try {
+            IModeloDAO modeloDB = null;
+            modeloDB = new ModeloDAO();
+            atualizarGrid(modeloDB.listaModelos());
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro.getMessage());
         }
 
     }
@@ -65,11 +74,11 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jButtonDeletar = new javax.swing.JButton();
+        jButtonAlterar = new javax.swing.JButton();
+        jButtonIncluir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableCadastrarModelo = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jTextFieldUrl = new javax.swing.JTextField();
         jTextFieldModelo = new javax.swing.JTextField();
@@ -122,14 +131,14 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(0, 153, 153));
 
-        jButton1.setText("Deletar");
+        jButtonDeletar.setText("Deletar");
 
-        jButton2.setText("Alterar");
+        jButtonAlterar.setText("Alterar");
 
-        jButton3.setText("Incluir");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButtonIncluir.setText("Incluir");
+        jButtonIncluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButtonIncluirActionPerformed(evt);
             }
         });
 
@@ -139,11 +148,11 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(jButtonIncluir)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(jButtonAlterar)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(jButtonDeletar)
                 .addGap(55, 55, 55))
         );
         jPanel4Layout.setVerticalGroup(
@@ -151,13 +160,13 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(jButtonDeletar)
+                    .addComponent(jButtonAlterar)
+                    .addComponent(jButtonIncluir))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableCadastrarModelo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -168,7 +177,7 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
                 "ID", "Modelo", "URL", "Marca"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableCadastrarModelo);
 
         jPanel5.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -286,11 +295,16 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButtonIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirActionPerformed
         try {
 
+            String pegarID = "";
+            pegarID = (String) jComboBoxMarca.getSelectedItem();
+            String[] ID = pegarID.split("-");
+
             Modelo modelo = null;
-            //modelo = new Modelo(0, jTextFieldModelo.getText(), jTextFieldUrl.getText(), (jComboBoxMarca.getSelectedItem());
+            System.out.println(ID[0]);
+            modelo = new Modelo(0, jTextFieldModelo.getText(), jTextFieldUrl.getText(), Integer.parseInt(ID[0]));
 
             IModeloDAO modeloDB = null;
             modeloDB = new ModeloDAO();
@@ -300,8 +314,27 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro.getMessage());
         }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jButtonIncluirActionPerformed
 
+        private void atualizarGrid(ArrayList<Modelo> listaModelos) {
+        try {
+            DefaultTableModel model = (DefaultTableModel) jTableCadastrarModelo.getModel();
+            model.setNumRows(0);
+            for (int pos = 0; pos < listaModelos.size(); pos++) {
+                Modelo modelo = listaModelos.get(pos);
+                String[] linha = new String[4];
+                linha[0] = modelo.getId() + "";
+                linha[1] = modelo.getDescricao();
+                linha[2] = modelo.getUrl();
+                linha[3] = Integer.toString(modelo.getMarca());
+
+                model.addRow(linha);
+            }
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, erro.getMessage());
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -338,9 +371,9 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonAlterar;
+    private javax.swing.JButton jButtonDeletar;
+    private javax.swing.JButton jButtonIncluir;
     private javax.swing.JComboBox<String> jComboBoxMarca;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -354,7 +387,7 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableCadastrarModelo;
     private javax.swing.JTextField jTextFieldID;
     private javax.swing.JTextField jTextFieldModelo;
     private javax.swing.JTextField jTextFieldUrl;

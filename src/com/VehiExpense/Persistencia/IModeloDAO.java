@@ -6,6 +6,7 @@ package com.VehiExpense.Persistencia;
 
 import com.VehiExpense.modelos.Modelo;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,4 +14,5 @@ import java.sql.SQLException;
  */
 public interface IModeloDAO {
     public void inserir(Modelo modelo) throws SQLException;
+        public ArrayList<Modelo> listaModelos() throws SQLException;
 }
