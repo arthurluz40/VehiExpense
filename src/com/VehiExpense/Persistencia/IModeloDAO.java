@@ -16,9 +16,11 @@ public interface IModeloDAO {
 
     public void inserir(Modelo modelo) throws SQLException;
 
-    public ArrayList<Modelo> listaModelos() throws SQLException;
-
     public void atualizar(Modelo modelo) throws SQLException;
+
+    public void excluir(Modelo modelo) throws SQLException;
+
+    public ArrayList<Modelo> listaModelos() throws SQLException;
 
     public Modelo buscarPorId(int id) throws SQLException;
 }

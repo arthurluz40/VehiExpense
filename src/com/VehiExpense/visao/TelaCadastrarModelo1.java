@@ -132,6 +132,11 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(0, 153, 153));
 
         jButtonDeletar.setText("Deletar");
+        jButtonDeletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeletarActionPerformed(evt);
+            }
+        });
 
         jButtonAlterar.setText("Alterar");
         jButtonAlterar.addActionListener(new java.awt.event.ActionListener() {
@@ -259,15 +264,15 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(96, 96, 96)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(238, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(57, 57, 57))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(187, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(164, 164, 164))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,14 +280,10 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(36, 36, 36))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(102, Short.MAX_VALUE))
         );
@@ -321,9 +322,10 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
             IModeloDAO modeloDB = null;
             modeloDB = new ModeloDAO();
             modeloDB.inserir(modelo);
-            //atualizarGrid(modeloDB.listaModelos());
+            atualizarGrid(modeloDB.listaModelos());
             JOptionPane.showMessageDialog(this, "Modelo cadastrada com sucesso!");
         } catch (Exception erro) {
+            erro.printStackTrace();
             JOptionPane.showMessageDialog(this, erro.getMessage());
         }
     }//GEN-LAST:event_jButtonIncluirActionPerformed
@@ -336,8 +338,13 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
 
     private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
         try {
+            String pegarID = "";
+            pegarID = jTableCadastrarModelo.getValueAt(jTableCadastrarModelo.getSelectedRow(), 3).toString();
+            String[] ID = pegarID.split("-");
+            int idmarca = Integer.parseInt(ID[0]);
+            MarcaDAO marcadao = new MarcaDAO();
             Modelo modelo = null;
-            modelo = new Modelo((Integer.parseInt(jTextFieldID.getText())), jTextFieldModelo.getText(), jTextFieldUrl.getText(), modelo.getMarca());
+            modelo = new Modelo((Integer.parseInt(jTextFieldID.getText())), jTextFieldModelo.getText(), jTextFieldUrl.getText(), marcadao.buscarPorId(idmarca));
 
             IModeloDAO modeloDB = null;
             modeloDB = new ModeloDAO();
@@ -351,17 +358,40 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonAlterarActionPerformed
 
+    private void jButtonDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeletarActionPerformed
+        try {
+            String pegarID = "";
+            pegarID = jTableCadastrarModelo.getValueAt(jTableCadastrarModelo.getSelectedRow(), 3).toString();
+            String[] ID = pegarID.split("-");
+            int idmarca = Integer.parseInt(ID[0]);
+            MarcaDAO marcadao = new MarcaDAO();
+            Modelo modelo = null;
+            modelo = new Modelo((Integer.parseInt(jTextFieldID.getText())), jTextFieldModelo.getText(), jTextFieldUrl.getText(), marcadao.buscarPorId(idmarca));
+
+            IModeloDAO modeloBD = null;
+            modeloBD = new ModeloDAO();
+            modeloBD.excluir(modelo);
+            JOptionPane.showMessageDialog(this, "Categoria deletada com sucesso!");
+
+            atualizarGrid(modeloBD.listaModelos());
+
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro.getMessage());
+        }
+    }//GEN-LAST:event_jButtonDeletarActionPerformed
+
     private void atualizarGrid(ArrayList<Modelo> listaModelos) {
         try {
             DefaultTableModel model = (DefaultTableModel) jTableCadastrarModelo.getModel();
             model.setNumRows(0);
             for (int pos = 0; pos < listaModelos.size(); pos++) {
+                Marca marca = new Marca();
                 Modelo modelo = listaModelos.get(pos);
                 String[] linha = new String[4];
                 linha[0] = modelo.getId() + "";
                 linha[1] = modelo.getDescricao();
                 linha[2] = modelo.getUrl();
-                linha[3] = Integer.toString(modelo.getMarca().getId());
+                linha[3] = modelo.getMarcaDoModelo().getId() + "- " + modelo.getMarcaDoModelo().getDescricao();
 
                 model.addRow(linha);
             }

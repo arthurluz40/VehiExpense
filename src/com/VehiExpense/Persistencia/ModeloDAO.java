@@ -29,7 +29,7 @@ public class ModeloDAO implements IModeloDAO {
         try ( PreparedStatement stmt = conexao.prepareStatement(sql)) {
             stmt.setString(1, modelo.getDescricao());
             stmt.setString(2, modelo.getUrl());
-            stmt.setObject(3, modelo.getMarca());
+            stmt.setObject(3, modelo.getMarcaDoModelo().getId());
             stmt.executeUpdate();
         }
     }
@@ -40,6 +40,14 @@ public class ModeloDAO implements IModeloDAO {
             stmt.setString(1, modelo.getDescricao());
             stmt.setString(2, modelo.getUrl());
             stmt.setInt(3, modelo.getId());
+            stmt.executeUpdate();
+        }
+    }
+    
+        public void excluir(Modelo modelo) throws SQLException {
+        String sql = "DELETE FROM modelo WHERE Id = ?";
+        try ( PreparedStatement stmt = conexao.prepareStatement(sql)) {
+            stmt.setInt(1, modelo.getId());
             stmt.executeUpdate();
         }
     }
@@ -55,7 +63,7 @@ public class ModeloDAO implements IModeloDAO {
                 modelo.setId(rs.getInt("Id"));
                 modelo.setDescricao(rs.getString("descricaomodleo"));
                 modelo.setUrl(rs.getString("foto"));
-                modelo.setMarca(marca.buscarPorId((rs.getInt("idmarca"))));
+                modelo.setMarcaDoModelo(marca.buscarPorId((rs.getInt("idmarca"))));
                 modelos.add(modelo);
             }
         } catch (Exception e) {
@@ -75,7 +83,7 @@ public class ModeloDAO implements IModeloDAO {
                     MarcaDAO marca = new MarcaDAO();
                     modelo.setId(rs.getInt("Id"));
                     modelo.setDescricao(rs.getString("descricaoModleo"));
-                    modelo.setMarca(marca.buscarPorId((rs.getInt("idmarca"))));
+                    modelo.setMarcaDoModelo(marca.buscarPorId((rs.getInt("idmarca"))));
                     return modelo;
                 }
             } catch (Exception e) {

@@ -14,22 +14,22 @@ public class Modelo {
     private int id = 0;
     private String descricao = "";
     private String url = "";
-    private Marca marca;
+    private Marca marcaDoModelo;
 
     //Metodos
-    public Modelo(int id, String descricao, String url, Marca marca) {
+    public Modelo(int id, String descricao, String url, Marca marcaDoModelo) {
         this.id = id;
         this.descricao = descricao;
         this.url = url;
-        this.marca = marca;
+        this.marcaDoModelo = marcaDoModelo;
     }
 
-    public Marca getMarca() {
-        return marca;
+    public Marca getMarcaDoModelo() {
+        return marcaDoModelo;
     }
 
-    public void setMarca(Marca marca) {
-        this.marca = marca;
+    public void setMarcaDoModelo(Marca marca) {
+        this.marcaDoModelo = marca;
     }
 
     public Modelo() {
@@ -61,7 +61,7 @@ public class Modelo {
 
     @Override
     public String toString() {
-        return "Modelo{" + "id=" + id + ", descricao=" + descricao + ", url=" + url + ", marca=" + marca + '}';
+        return "Modelo{" + "id=" + id + ", descricao=" + descricao + ", url=" + url + ", marca=" + marcaDoModelo + '}';
     }
 
 }
