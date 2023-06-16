@@ -4,7 +4,11 @@
  */
 package com.VehiExpense.visao;
 
-import com.VehiExpense.Enumerations.CategoriaGastos;
+import com.VehiExpense.Persistencia.CategoriaDeGastosDAO;
+import com.VehiExpense.modelos.CategoriaDeGastos;
+import java.util.List;
+
+
 
 /**
  *
@@ -18,9 +22,30 @@ public class TelaGastos extends javax.swing.JFrame {
     public TelaGastos() {
         initComponents();
         // Adicionar valores da enumeração ao JComboBox
-        for (CategoriaGastos categoria : CategoriaGastos.values()) {
-            jComboBoxCategoriaGastos.addItem(categoria);
-        }
+        try {
+    CategoriaDeGastosDAO categoriaDeGastosDAO = new CategoriaDeGastosDAO();
+    List<CategoriaDeGastos> categorias = categoriaDeGastosDAO.listarTodos();
+
+    // Criar um vetor para armazenar as descrições das categorias
+    String[] listaCombo = new String[categorias.size()];
+
+    // Preencher o vetor com as descrições das categorias
+    for (int i = 0; i < categorias.size(); i++) {
+        listaCombo[i] = categorias.get(i).getDescricaoMarca();
+    }
+
+    // Limpar a combobox antes de adicionar os novos itens
+    jComboBoxCategoriaGastos.removeAllItems();
+
+    // Adicionar os itens do vetor na combobox
+    for (String descricao : listaCombo) {
+        jComboBoxCategoriaGastos.addItem(descricao);
+    }
+} catch (Exception e) {
+    // Tratar exceção
+    e.printStackTrace();
+}
+       
     }
 
     /**
@@ -39,12 +64,12 @@ public class TelaGastos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBoxCategoriaGastos = new javax.swing.JComboBox<>();
         jTextFieldValorGasto = new javax.swing.JTextField();
         jTextFieldDescricaoGasto = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jTextFieldData = new javax.swing.JTextField();
+        jComboBoxCategoriaGastos = new javax.swing.JComboBox<>();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -105,6 +130,11 @@ public class TelaGastos extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(116, 116, 116)
+                        .addComponent(jTextFieldData, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(314, 314, 314)
                         .addComponent(jLabel2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -115,16 +145,9 @@ public class TelaGastos extends javax.swing.JFrame {
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(56, 56, 56)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextFieldValorGasto, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jComboBoxCategoriaGastos, javax.swing.GroupLayout.Alignment.LEADING, 0, 106, Short.MAX_VALUE))
-                            .addComponent(jTextFieldDescricaoGasto, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(116, 116, 116)
-                        .addComponent(jTextFieldData, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(129, 129, 129)))
+                            .addComponent(jTextFieldValorGasto, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldDescricaoGasto, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBoxCategoriaGastos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -136,11 +159,11 @@ public class TelaGastos extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jTextFieldDescricaoGasto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jComboBoxCategoriaGastos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(jTextFieldValorGasto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -209,7 +232,7 @@ public class TelaGastos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<CategoriaGastos> jComboBoxCategoriaGastos;
+    private javax.swing.JComboBox<String> jComboBoxCategoriaGastos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
