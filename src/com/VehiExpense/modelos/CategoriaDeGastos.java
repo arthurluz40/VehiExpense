@@ -28,11 +28,11 @@ public class CategoriaDeGastos {
         this.id = id;
     }
 
-    public String getDescricaoMarca() {
+    public String getDescricaoCategoriaDeGasto() {
         return descricaoCategoriaDeGastos;
     }
 
-    public void setDescricaoMarca(String descricaoCategoriaDeGastos) {
+    public void setDescricaoCategoriaDeGasto(String descricaoCategoriaDeGastos) {
         this.descricaoCategoriaDeGastos = descricaoCategoriaDeGastos;
     }
 }

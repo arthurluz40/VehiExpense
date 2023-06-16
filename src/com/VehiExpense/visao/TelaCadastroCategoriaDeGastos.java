@@ -249,7 +249,7 @@ public class TelaCadastroCategoriaDeGastos extends javax.swing.JFrame {
                 CategoriaDeGastos categoriaDeGastos = listaCategoriaDeGastos.get(pos);
                 String[] linha = new String[2];
                 linha[0] = categoriaDeGastos.getId() + "";
-                linha[1] = categoriaDeGastos.getDescricaoMarca();
+                linha[1] = categoriaDeGastos.getDescricaoCategoriaDeGasto();
 
                 model.addRow(linha);
             }

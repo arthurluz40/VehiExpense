@@ -32,7 +32,7 @@ public class TelaGastos extends javax.swing.JFrame {
 
     // Preencher o vetor com as descrições das categorias
     for (int i = 0; i < categorias.size(); i++) {
-        listaCombo[i] = categorias.get(i).getDescricaoMarca();
+        listaCombo[i] = categorias.get(i).getDescricaoCategoriaDeGasto();
     }
 
     // Limpar a combobox antes de adicionar os novos itens
