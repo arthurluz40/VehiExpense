@@ -6,13 +6,19 @@ package com.VehiExpense.Persistencia;
 
 import com.VehiExpense.modelos.Marca;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
  * @author Canto
  */
 public interface IMarcaDAO {
+
     public void inserir(Marca marca) throws SQLException;
+
     public void atualizar(Marca marca) throws SQLException;
-    public void excluir(int id) throws SQLException;
+
+    public void excluir(Marca marca) throws SQLException;
+
+    public ArrayList<Marca> listaMarcas() throws SQLException;
 }

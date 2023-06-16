@@ -7,7 +7,9 @@ package com.VehiExpense.visao;
 import com.VehiExpense.Persistencia.IMarcaDAO;
 import com.VehiExpense.Persistencia.MarcaDAO;
 import com.VehiExpense.modelos.Marca;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -20,6 +22,15 @@ public class TelaCadastrarMarca1 extends javax.swing.JFrame {
      */
     public TelaCadastrarMarca1() {
         initComponents();
+        setLocationRelativeTo(null);
+
+        try {
+            IMarcaDAO marcaDB = null;
+            marcaDB = new MarcaDAO();
+            atualizarGrid(marcaDB.listaMarcas());
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro.getMessage());
+        }
     }
 
     /**
@@ -39,8 +50,8 @@ public class TelaCadastrarMarca1 extends javax.swing.JFrame {
         jButtonAlterar = new javax.swing.JButton();
         jButtonDeletar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
+        jTableCadastrarMarca = new javax.swing.JTable();
+        jLabelLogo = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jTextFieldMarca = new javax.swing.JTextField();
         jTextFieldUrl = new javax.swing.JTextField();
@@ -84,8 +95,18 @@ public class TelaCadastrarMarca1 extends javax.swing.JFrame {
         });
 
         jButtonAlterar.setText("Alterar");
+        jButtonAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAlterarActionPerformed(evt);
+            }
+        });
 
         jButtonDeletar.setText("Deletar");
+        jButtonDeletar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeletarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -110,24 +131,31 @@ public class TelaCadastrarMarca1 extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableCadastrarMarca.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Marca", "URL"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jTableCadastrarMarca.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableCadastrarMarcaMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTableCadastrarMarca);
 
-        jLabel2.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("LOGO");
+        jLabelLogo.setBackground(new java.awt.Color(204, 204, 204));
+        jLabelLogo.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelLogo.setText("LOGO");
 
         jPanel4.setBackground(new java.awt.Color(0, 153, 153));
+
+        jTextFieldID.setEnabled(false);
 
         jLabel3.setText("ID");
 
@@ -140,21 +168,16 @@ public class TelaCadastrarMarca1 extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(16, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(41, 41, 41)
-                        .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                            .addComponent(jLabel5)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextFieldUrl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jTextFieldMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldMarca, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                    .addComponent(jTextFieldUrl))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -183,7 +206,7 @@ public class TelaCadastrarMarca1 extends javax.swing.JFrame {
                 .addGap(61, 61, 61)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(110, 110, 110))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(272, 272, 272)
@@ -200,7 +223,7 @@ public class TelaCadastrarMarca1 extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -233,11 +256,70 @@ public class TelaCadastrarMarca1 extends javax.swing.JFrame {
             IMarcaDAO marcaDB = null;
             marcaDB = new MarcaDAO();
             marcaDB.inserir(marca);
+            atualizarGrid(marcaDB.listaMarcas());
             JOptionPane.showMessageDialog(this, "Marca cadastrada com sucesso!");
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro.getMessage());
         }
     }//GEN-LAST:event_jButtonIncluirActionPerformed
+
+    private void jTableCadastrarMarcaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCadastrarMarcaMouseClicked
+        jTextFieldID.setText(jTableCadastrarMarca.getValueAt(jTableCadastrarMarca.getSelectedRow(), 0).toString());
+        jTextFieldMarca.setText(jTableCadastrarMarca.getValueAt(jTableCadastrarMarca.getSelectedRow(), 1).toString());
+        jTextFieldUrl.setText(jTableCadastrarMarca.getValueAt(jTableCadastrarMarca.getSelectedRow(), 2).toString());
+    }//GEN-LAST:event_jTableCadastrarMarcaMouseClicked
+
+    private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
+        try {
+            Marca marca = null;
+            marca = new Marca((Integer.parseInt(jTextFieldID.getText())), jTextFieldMarca.getText(), jTextFieldUrl.getText());
+
+            IMarcaDAO marcaBD = null;
+            marcaBD = new MarcaDAO();
+            marcaBD.atualizar(marca);
+            JOptionPane.showMessageDialog(this, "Categoria de gastos atualizada!");
+
+            atualizarGrid(marcaBD.listaMarcas());
+
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro.getMessage());
+        }
+    }//GEN-LAST:event_jButtonAlterarActionPerformed
+
+    private void jButtonDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeletarActionPerformed
+        try {
+            Marca marca = null;
+            marca = new Marca((Integer.parseInt(jTextFieldID.getText())), jTextFieldMarca.getText(), jTextFieldUrl.getText());
+
+            IMarcaDAO marcaBD = null;
+            marcaBD = new MarcaDAO();
+            marcaBD.excluir(marca);
+            JOptionPane.showMessageDialog(this, "Categoria deletada com sucesso!");
+
+            atualizarGrid(marcaBD.listaMarcas());
+
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro.getMessage());
+        }
+    }//GEN-LAST:event_jButtonDeletarActionPerformed
+
+    private void atualizarGrid(ArrayList<Marca> listaMarcas) {
+        try {
+            DefaultTableModel model = (DefaultTableModel) jTableCadastrarMarca.getModel();
+            model.setNumRows(0);
+            for (int pos = 0; pos < listaMarcas.size(); pos++) {
+                Marca marca = listaMarcas.get(pos);
+                String[] linha = new String[3];
+                linha[0] = marca.getId() + "";
+                linha[1] = marca.getDescricao();
+                linha[2] = marca.getUrl();
+
+                model.addRow(linha);
+            }
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, erro.getMessage());
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -287,16 +369,16 @@ public class TelaCadastrarMarca1 extends javax.swing.JFrame {
     private javax.swing.JButton jButtonDeletar;
     private javax.swing.JButton jButtonIncluir;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabelLogo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableCadastrarMarca;
     private javax.swing.JTextField jTextFieldID;
     private javax.swing.JTextField jTextFieldMarca;
     private javax.swing.JTextField jTextFieldUrl;

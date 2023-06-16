@@ -3,22 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/aluno/Documents/NetBeansProjects/VehiExpense/src/com/VehiExpense/visao/TelaManutencao.java</file>
-            <file>file:/C:/Users/aluno/Documents/NetBeansProjects/VehiExpense/src/com/VehiExpense/visao/TelaEventuais.java</file>
-            <file>file:/C:/Users/aluno/Documents/NetBeansProjects/VehiExpense/src/com/VehiExpense/visao/TelaCadastroVeiculo.java</file>
-            <file>file:/C:/Users/aluno/Documents/NetBeansProjects/VehiExpense/src/com/VehiExpense/modelos/Veiculo.java</file>
-            <file>file:/C:/Users/aluno/Documents/NetBeansProjects/VehiExpense/src/com/VehiExpense/modelos/Modelo.java</file>
-            <file>file:/C:/Users/aluno/Documents/NetBeansProjects/VehiExpense/src/com/VehiExpense/modelos/Cliente.java</file>
-            <file>file:/C:/Users/aluno/Documents/NetBeansProjects/VehiExpense/src/com/VehiExpense/modelos/Marca.java</file>
-            <file>file:/C:/Users/aluno/Documents/NetBeansProjects/VehiExpense/src/com/VehiExpense/visao/TelaEmitirRelatorio.java</file>
-            <file>file:/C:/Users/aluno/Documents/NetBeansProjects/VehiExpense/src/com/VehiExpense/conexao/ConexaoBD.java</file>
-            <file>file:/C:/Users/aluno/Documents/NetBeansProjects/VehiExpense/src/com/VehiExpense/visao/TelaCadastrarMarca.java</file>
-            <file>file:/C:/Users/aluno/Documents/NetBeansProjects/VehiExpense/src/com/VehiExpense/visao/TelaCategoriaDeGastos.java</file>
-            <file>file:/C:/Users/aluno/Documents/NetBeansProjects/VehiExpense/src/com/VehiExpense/visao/TelaSeguro.java</file>
-            <file>file:/C:/Users/aluno/Documents/NetBeansProjects/VehiExpense/src/com/VehiExpense/visao/testarbanco.java</file>
-            <file>file:/C:/Users/aluno/Documents/NetBeansProjects/VehiExpense/src/com/VehiExpense/visao/TelaCadastrarModelo.java</file>
-            <file>file:/C:/Users/aluno/Documents/NetBeansProjects/VehiExpense/src/com/VehiExpense/visao/TelaCadastroProprietarioPF.java</file>
-            <file>file:/C:/Users/aluno/Documents/NetBeansProjects/VehiExpense/src/com/VehiExpense/visao/TelaCombustivel.java</file>
+            <file>file:/C:/Users/Canto/Desktop/Projeto/VehiExpense/src/com/VehiExpense/Persistencia/CategoriaDeGastosDAO.java</file>
+            <file>file:/C:/Users/Canto/Desktop/Projeto/VehiExpense/src/com/VehiExpense/Persistencia/MarcaDAO.java</file>
+            <file>file:/C:/Users/Canto/Desktop/Projeto/VehiExpense/src/com/VehiExpense/Persistencia/ICategoriaDeGastosDAO.java</file>
+            <file>file:/C:/Users/Canto/Desktop/Projeto/VehiExpense/src/com/VehiExpense/Persistencia/IMarcaDAO.java</file>
+            <file>file:/C:/Users/Canto/Desktop/Projeto/VehiExpense/src/com/VehiExpense/visao/TelaCadastroCategoriaDeGastos.java</file>
+            <file>file:/C:/Users/Canto/Desktop/Projeto/VehiExpense/src/com/VehiExpense/visao/TelaCadastrarMarca1.java</file>
         </group>
     </open-files>
 </project-private>
