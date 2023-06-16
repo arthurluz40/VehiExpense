@@ -64,7 +64,6 @@
                                       <Component id="jLabelRazaoSocial" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabelRazaoSocial1" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabelRazaoSocial3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelRazaoSocial2" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -75,7 +74,6 @@
                                           <Component id="jTextFieldRazaoSocial1" alignment="0" max="32767" attributes="0"/>
                                           <Component id="jTextFieldRazaoSocial3" alignment="0" max="32767" attributes="0"/>
                                           <Component id="jTextFieldRazaoSocial4" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldRazaoSocial5" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -95,18 +93,13 @@
                           <EmptySpace min="0" pref="109" max="32767" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
+                      <Component id="jPanel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jPanel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextFieldRazaoSocial2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldRazaoSocial3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="jTextFieldRazaoSocial2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldRazaoSocial3" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
@@ -134,12 +127,7 @@
                       <Component id="jTextFieldRazaoSocial4" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelRazaoSocial3" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldRazaoSocial5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelRazaoSocial2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -240,17 +228,6 @@
             <Property name="text" type="java.lang.String" value="Ano"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelRazaoSocial2">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Situa&#xe7;&#xe3;o"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabelRazaoSocial3">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -269,8 +246,6 @@
         <Component class="javax.swing.JTextField" name="jTextFieldRazaoSocial3">
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldRazaoSocial4">
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldRazaoSocial5">
         </Component>
       </SubComponents>
     </Container>

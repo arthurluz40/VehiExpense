@@ -37,13 +37,11 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         jTextFieldCNPJ = new javax.swing.JTextField();
         jTextFieldRazaoSocial = new javax.swing.JTextField();
         jLabelRazaoSocial1 = new javax.swing.JLabel();
-        jLabelRazaoSocial2 = new javax.swing.JLabel();
         jLabelRazaoSocial3 = new javax.swing.JLabel();
         jTextFieldRazaoSocial1 = new javax.swing.JTextField();
         jTextFieldRazaoSocial2 = new javax.swing.JTextField();
         jTextFieldRazaoSocial3 = new javax.swing.JTextField();
         jTextFieldRazaoSocial4 = new javax.swing.JTextField();
-        jTextFieldRazaoSocial5 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,10 +86,6 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         jLabelRazaoSocial1.setForeground(new java.awt.Color(0, 0, 0));
         jLabelRazaoSocial1.setText("Ano");
 
-        jLabelRazaoSocial2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelRazaoSocial2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelRazaoSocial2.setText("Situação");
-
         jLabelRazaoSocial3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelRazaoSocial3.setForeground(new java.awt.Color(0, 0, 0));
         jLabelRazaoSocial3.setText("Renavam");
@@ -118,8 +112,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                                     .addComponent(jLabelCNPJ)
                                     .addComponent(jLabelRazaoSocial)
                                     .addComponent(jLabelRazaoSocial1)
-                                    .addComponent(jLabelRazaoSocial3)
-                                    .addComponent(jLabelRazaoSocial2))
+                                    .addComponent(jLabelRazaoSocial3))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextFieldEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -128,8 +121,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                                         .addComponent(jTextFieldRazaoSocial)
                                         .addComponent(jTextFieldRazaoSocial1)
                                         .addComponent(jTextFieldRazaoSocial3)
-                                        .addComponent(jTextFieldRazaoSocial4)
-                                        .addComponent(jTextFieldRazaoSocial5)))))
+                                        .addComponent(jTextFieldRazaoSocial4)))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -140,15 +132,12 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(0, 109, Short.MAX_VALUE)
                         .addComponent(jLabel2))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldRazaoSocial2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldRazaoSocial3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jTextFieldRazaoSocial2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldRazaoSocial3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(32, 32, 32)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -169,11 +158,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldRazaoSocial4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelRazaoSocial3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldRazaoSocial5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelRazaoSocial2))
-                .addGap(107, 107, 107))
+                .addGap(141, 141, 141))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -232,7 +217,6 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelEmail;
     private javax.swing.JLabel jLabelRazaoSocial;
     private javax.swing.JLabel jLabelRazaoSocial1;
-    private javax.swing.JLabel jLabelRazaoSocial2;
     private javax.swing.JLabel jLabelRazaoSocial3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -243,6 +227,5 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldRazaoSocial2;
     private javax.swing.JTextField jTextFieldRazaoSocial3;
     private javax.swing.JTextField jTextFieldRazaoSocial4;
-    private javax.swing.JTextField jTextFieldRazaoSocial5;
     // End of variables declaration//GEN-END:variables
 }
