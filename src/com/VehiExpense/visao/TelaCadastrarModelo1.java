@@ -314,12 +314,14 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
 
             Modelo modelo = null;
             System.out.println(ID[0]);
-            modelo = new Modelo(0, jTextFieldModelo.getText(), jTextFieldUrl.getText(), modelo.getMarca());
+            MarcaDAO marca = new MarcaDAO();
+            System.out.println(marca.buscarPorId(Integer.parseInt(ID[0])));
+            modelo = new Modelo(0, jTextFieldModelo.getText(), jTextFieldUrl.getText(), marca.buscarPorId(Integer.parseInt(ID[0])));
 
             IModeloDAO modeloDB = null;
             modeloDB = new ModeloDAO();
             modeloDB.inserir(modelo);
-            atualizarGrid(modeloDB.listaModelos());
+            //atualizarGrid(modeloDB.listaModelos());
             JOptionPane.showMessageDialog(this, "Modelo cadastrada com sucesso!");
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro.getMessage());

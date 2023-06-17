@@ -50,13 +50,16 @@ public class ModeloDAO implements IModeloDAO {
         String sql = "SELECT * FROM modelo";
         try ( PreparedStatement stmt = conexao.prepareStatement(sql);  ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
+                MarcaDAO marca = new MarcaDAO();
                 Modelo modelo = new Modelo();
                 modelo.setId(rs.getInt("Id"));
                 modelo.setDescricao(rs.getString("descricaomodleo"));
                 modelo.setUrl(rs.getString("foto"));
-                //modelo.setMarca(Integer.parseInt(rs.getString("idmarca")));
+                modelo.setMarca(marca.buscarPorId((rs.getInt("idmarca"))));
                 modelos.add(modelo);
             }
+        } catch (Exception e) {
+
         }
         return modelos;
     }
