@@ -28,7 +28,7 @@ public class ModeloDAO implements IModeloDAO {
         String sql = "INSERT INTO modelo (descricaomodleo, foto, idmarca) VALUES ( ? , ?, ?)";
         try ( PreparedStatement stmt = conexao.prepareStatement(sql)) {
             stmt.setString(1, modelo.getDescricao());
-            stmt.setString(2, modelo.getUrl());
+            stmt.setString(2, modelo.getFoto());
             stmt.setObject(3, modelo.getMarcaDoModelo().getId());
             stmt.executeUpdate();
         }
@@ -38,7 +38,7 @@ public class ModeloDAO implements IModeloDAO {
         String sql = "UPDATE modelo SET descricaomodleo = ?, foto = ? WHERE Id = ?";
         try ( PreparedStatement stmt = conexao.prepareStatement(sql)) {
             stmt.setString(1, modelo.getDescricao());
-            stmt.setString(2, modelo.getUrl());
+            stmt.setString(2, modelo.getFoto());
             stmt.setInt(3, modelo.getId());
             stmt.executeUpdate();
         }
@@ -62,7 +62,7 @@ public class ModeloDAO implements IModeloDAO {
                 Modelo modelo = new Modelo();
                 modelo.setId(rs.getInt("Id"));
                 modelo.setDescricao(rs.getString("descricaomodleo"));
-                modelo.setUrl(rs.getString("foto"));
+                modelo.setFoto(rs.getString("foto"));
                 modelo.setMarcaDoModelo(marca.buscarPorId((rs.getInt("idmarca"))));
                 modelos.add(modelo);
             }
@@ -82,6 +82,7 @@ public class ModeloDAO implements IModeloDAO {
                     Modelo modelo = new Modelo();
                     MarcaDAO marca = new MarcaDAO();
                     modelo.setId(rs.getInt("Id"));
+                    modelo.setFoto(rs.getString("foto"));
                     modelo.setDescricao(rs.getString("descricaoModleo"));
                     modelo.setMarcaDoModelo(marca.buscarPorId((rs.getInt("idmarca"))));
                     return modelo;

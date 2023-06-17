@@ -57,24 +57,42 @@
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="195" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabelEmail" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelCNPJ" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelRazaoSocial" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelRazaoSocial1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelRazaoSocial3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextFieldEmail" alignment="1" min="-2" pref="308" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jTextFieldCNPJ" alignment="0" pref="308" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldRazaoSocial" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldRazaoSocial1" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldRazaoSocial3" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldRazaoSocial4" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabelRazaoSocial1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelRazaoSocial" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelEmail" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelRazaoSocial3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                                       </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabelRazaoSocial4" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelRazaoSocial5" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelRazaoSocial6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jTextFieldPlaca" alignment="1" min="-2" pref="308" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="jTextFieldAno" alignment="0" pref="308" max="32767" attributes="0"/>
+                                          <Component id="jTextFieldRazaoSocial3" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jTextFieldRenavam" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jTextFieldQuilometragem" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="jComboBoxModelo" min="-2" pref="77" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jComboBoxTipoDeCombustivel" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jButtonIncluir" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="jComboBoxProprietario" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -95,7 +113,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="109" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="103" max="32767" attributes="0"/>
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jPanel3" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -109,30 +127,41 @@
                   </Group>
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldPlaca" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldCNPJ" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelRazaoSocial" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBoxModelo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldRazaoSocial" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelCNPJ" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldRazaoSocial1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelRazaoSocial1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldAno" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldRazaoSocial4" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldRenavam" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelRazaoSocial3" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jTextFieldQuilometragem" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelRazaoSocial4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jComboBoxTipoDeCombustivel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelRazaoSocial5" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonIncluir" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelRazaoSocial6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jComboBoxProprietario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Component id="jButtonMenu" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
@@ -190,14 +219,6 @@
             <Property name="text" type="java.lang.String" value="Placa"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabelCNPJ">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="14" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Marca"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabelRazaoSocial">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -206,11 +227,7 @@
             <Property name="text" type="java.lang.String" value="Modelo"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldEmail">
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldCNPJ">
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldRazaoSocial">
+        <Component class="javax.swing.JTextField" name="jTextFieldPlaca">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabelRazaoSocial1">
           <Properties>
@@ -228,13 +245,13 @@
             <Property name="text" type="java.lang.String" value="Renavam"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldRazaoSocial1">
+        <Component class="javax.swing.JTextField" name="jTextFieldAno">
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldRazaoSocial2">
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldRazaoSocial3">
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldRazaoSocial4">
+        <Component class="javax.swing.JTextField" name="jTextFieldRenavam">
         </Component>
         <Component class="javax.swing.JButton" name="jButtonMenu">
           <Properties>
@@ -243,6 +260,79 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonMenuActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelRazaoSocial4">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Quilometragem"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldQuilometragem">
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jComboBoxModelo">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="4">
+                <StringItem index="0" value="Item 1"/>
+                <StringItem index="1" value="Item 2"/>
+                <StringItem index="2" value="Item 3"/>
+                <StringItem index="3" value="Item 4"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jComboBoxTipoDeCombustivel">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="3">
+                <StringItem index="0" value="gasosa"/>
+                <StringItem index="1" value="pinga"/>
+                <StringItem index="2" value="veio barrero"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelRazaoSocial5">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Combust&#xed;vel"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButtonIncluir">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Incluir"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonIncluirActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelRazaoSocial6">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Propriet&#xe1;rio"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jComboBoxProprietario">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

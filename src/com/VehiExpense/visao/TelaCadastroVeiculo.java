@@ -4,6 +4,16 @@
  */
 package com.VehiExpense.visao;
 
+import com.VehiExpense.Persistencia.IVeiculoDAO;
+import com.VehiExpense.Persistencia.ModeloDAO;
+import com.VehiExpense.Persistencia.ProprietarioDAO;
+import com.VehiExpense.Persistencia.VeiculoDAO;
+import com.VehiExpense.modelos.Modelo;
+import com.VehiExpense.modelos.Proprietario;
+import com.VehiExpense.modelos.Veiculo;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author aluno
@@ -16,6 +26,55 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
     public TelaCadastroVeiculo() {
         initComponents();
         setLocationRelativeTo(null);
+
+        try {
+            ModeloDAO modeloDAO = new ModeloDAO();
+            ArrayList<Modelo> categorias = modeloDAO.listaModelos();
+
+            // Criar um vetor para armazenar as descrições das categorias
+            String[] listaCombo = new String[categorias.size()];
+
+            // Preencher o vetor com as descrições das categorias
+            for (int i = 0; i < categorias.size(); i++) {
+                listaCombo[i] = categorias.get(i).getId() + "- " + categorias.get(i).getDescricao();
+            }
+
+            // Limpar a combobox antes de adicionar os novos itens
+            jComboBoxModelo.removeAllItems();
+
+            // Adicionar os itens do vetor na combobox
+            for (String descricao : listaCombo) {
+                jComboBoxModelo.addItem(descricao);
+            }
+        } catch (Exception e) {
+            // Tratar exceção
+            e.printStackTrace();
+        }
+
+        try {
+            ProprietarioDAO proprietarioDAO = new ProprietarioDAO();
+            ArrayList<Proprietario> categorias = proprietarioDAO.listarTodos();
+
+            // Criar um vetor para armazenar as descrições das categorias
+            String[] listaCombo = new String[categorias.size()];
+
+            // Preencher o vetor com as descrições das categorias
+            for (int i = 0; i < categorias.size(); i++) {
+                listaCombo[i] = categorias.get(i).getCpf()+ "- " + categorias.get(i).getNome();
+            }
+
+            // Limpar a combobox antes de adicionar os novos itens
+            jComboBoxProprietario.removeAllItems();
+
+            // Adicionar os itens do vetor na combobox
+            for (String descricao : listaCombo) {
+                jComboBoxProprietario.addItem(descricao);
+            }
+        } catch (Exception e) {
+            // Tratar exceção
+            e.printStackTrace();
+        }
+
     }
 
     /**
@@ -32,18 +91,23 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabelEmail = new javax.swing.JLabel();
-        jLabelCNPJ = new javax.swing.JLabel();
         jLabelRazaoSocial = new javax.swing.JLabel();
-        jTextFieldEmail = new javax.swing.JTextField();
-        jTextFieldCNPJ = new javax.swing.JTextField();
-        jTextFieldRazaoSocial = new javax.swing.JTextField();
+        jTextFieldPlaca = new javax.swing.JTextField();
         jLabelRazaoSocial1 = new javax.swing.JLabel();
         jLabelRazaoSocial3 = new javax.swing.JLabel();
-        jTextFieldRazaoSocial1 = new javax.swing.JTextField();
+        jTextFieldAno = new javax.swing.JTextField();
         jTextFieldRazaoSocial2 = new javax.swing.JTextField();
         jTextFieldRazaoSocial3 = new javax.swing.JTextField();
-        jTextFieldRazaoSocial4 = new javax.swing.JTextField();
+        jTextFieldRenavam = new javax.swing.JTextField();
         jButtonMenu = new javax.swing.JButton();
+        jLabelRazaoSocial4 = new javax.swing.JLabel();
+        jTextFieldQuilometragem = new javax.swing.JTextField();
+        jComboBoxModelo = new javax.swing.JComboBox<>();
+        jComboBoxTipoDeCombustivel = new javax.swing.JComboBox<>();
+        jLabelRazaoSocial5 = new javax.swing.JLabel();
+        jButtonIncluir = new javax.swing.JButton();
+        jLabelRazaoSocial6 = new javax.swing.JLabel();
+        jComboBoxProprietario = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,9 +138,6 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         jLabelEmail.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelEmail.setText("Placa");
 
-        jLabelCNPJ.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelCNPJ.setText("Marca");
-
         jLabelRazaoSocial.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabelRazaoSocial.setText("Modelo");
 
@@ -92,6 +153,26 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                 jButtonMenuActionPerformed(evt);
             }
         });
+
+        jLabelRazaoSocial4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelRazaoSocial4.setText("Quilometragem");
+
+        jComboBoxModelo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jComboBoxTipoDeCombustivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "gasosa", "pinga", "veio barrero" }));
+
+        jLabelRazaoSocial5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelRazaoSocial5.setText("Combustível");
+
+        jButtonIncluir.setText("Incluir");
+        jButtonIncluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIncluirActionPerformed(evt);
+            }
+        });
+
+        jLabelRazaoSocial6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelRazaoSocial6.setText("Proprietário");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -109,22 +190,35 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                                 .addGap(326, 326, 326)
                                 .addComponent(jLabel2))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(195, 195, 195)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelEmail)
-                                    .addComponent(jLabelCNPJ)
-                                    .addComponent(jLabelRazaoSocial)
-                                    .addComponent(jLabelRazaoSocial1)
-                                    .addComponent(jLabelRazaoSocial3))
-                                .addGap(18, 18, 18)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(151, 151, 151)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabelRazaoSocial1)
+                                            .addComponent(jLabelRazaoSocial)
+                                            .addComponent(jLabelEmail)
+                                            .addComponent(jLabelRazaoSocial3))
+                                        .addGap(62, 62, 62))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                        .addContainerGap()
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabelRazaoSocial4)
+                                            .addComponent(jLabelRazaoSocial5)
+                                            .addComponent(jLabelRazaoSocial6))
+                                        .addGap(18, 18, 18)))
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldPlaca, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jTextFieldCNPJ, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
-                                        .addComponent(jTextFieldRazaoSocial)
-                                        .addComponent(jTextFieldRazaoSocial1)
+                                        .addComponent(jTextFieldAno, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
                                         .addComponent(jTextFieldRazaoSocial3)
-                                        .addComponent(jTextFieldRazaoSocial4)))))
+                                        .addComponent(jTextFieldRenavam)
+                                        .addComponent(jTextFieldQuilometragem))
+                                    .addComponent(jComboBoxModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jComboBoxTipoDeCombustivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButtonIncluir))
+                                    .addComponent(jComboBoxProprietario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -137,7 +231,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 109, Short.MAX_VALUE)
+                        .addGap(0, 103, Short.MAX_VALUE)
                         .addComponent(jLabel2))
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -147,25 +241,34 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                             .addComponent(jTextFieldRazaoSocial3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(32, 32, 32)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelEmail))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelRazaoSocial))
+                    .addComponent(jLabelRazaoSocial)
+                    .addComponent(jComboBoxModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldRazaoSocial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelCNPJ))
+                    .addComponent(jLabelRazaoSocial1)
+                    .addComponent(jTextFieldAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldRazaoSocial1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelRazaoSocial1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldRazaoSocial4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldRenavam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelRazaoSocial3))
-                .addGap(94, 94, 94)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldQuilometragem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelRazaoSocial4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBoxTipoDeCombustivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelRazaoSocial5)
+                    .addComponent(jButtonIncluir))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelRazaoSocial6)
+                    .addComponent(jComboBoxProprietario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
                 .addComponent(jButtonMenu)
                 .addGap(25, 25, 25))
         );
@@ -190,6 +293,34 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButtonMenuActionPerformed
+
+    private void jButtonIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirActionPerformed
+        try {
+//marca.buscarPorId(Integer.parseInt(ID[0])
+            String pegarID = "";
+            pegarID = (String) jComboBoxModelo.getSelectedItem();
+            String[] ID = pegarID.split("-");
+
+            //System.out.println(ID[0]);
+            ModeloDAO modelo = new ModeloDAO();
+            System.out.println(modelo.buscarPorId(Integer.parseInt(ID[0])));
+            Veiculo veiculo = null;
+            String proprietario = jComboBoxProprietario.getSelectedItem().toString();
+            String[] cpfProprietario = proprietario.split("-");
+            //System.out.println(Integer.parseInt(ID[0]));
+            //System.out.println(ID[2]);
+            veiculo = new Veiculo(jTextFieldPlaca.getText(), jTextFieldRenavam.getText(), Integer.parseInt(jTextFieldAno.getText()), "ID[2]", jComboBoxTipoDeCombustivel.getSelectedItem().toString(), Double.parseDouble(jTextFieldQuilometragem.getText()), cpfProprietario[0],modelo.buscarPorId(Integer.parseInt(ID[0])));
+
+            IVeiculoDAO veiculoDB = null;
+            veiculoDB = new VeiculoDAO();
+            veiculoDB.inserir(veiculo);
+            //atualizarGrid(veiculoDB.listaModelos());
+            JOptionPane.showMessageDialog(this, "Veículo cadastrado com sucesso!");
+        } catch (Exception erro) {
+            erro.printStackTrace();
+            JOptionPane.showMessageDialog(this, erro.getMessage());
+        }
+    }//GEN-LAST:event_jButtonIncluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,22 +358,27 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonIncluir;
     private javax.swing.JButton jButtonMenu;
+    private javax.swing.JComboBox<String> jComboBoxModelo;
+    private javax.swing.JComboBox<String> jComboBoxProprietario;
+    private javax.swing.JComboBox<String> jComboBoxTipoDeCombustivel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabelCNPJ;
     private javax.swing.JLabel jLabelEmail;
     private javax.swing.JLabel jLabelRazaoSocial;
     private javax.swing.JLabel jLabelRazaoSocial1;
     private javax.swing.JLabel jLabelRazaoSocial3;
+    private javax.swing.JLabel jLabelRazaoSocial4;
+    private javax.swing.JLabel jLabelRazaoSocial5;
+    private javax.swing.JLabel jLabelRazaoSocial6;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextFieldCNPJ;
-    private javax.swing.JTextField jTextFieldEmail;
-    private javax.swing.JTextField jTextFieldRazaoSocial;
-    private javax.swing.JTextField jTextFieldRazaoSocial1;
+    private javax.swing.JTextField jTextFieldAno;
+    private javax.swing.JTextField jTextFieldPlaca;
+    private javax.swing.JTextField jTextFieldQuilometragem;
     private javax.swing.JTextField jTextFieldRazaoSocial2;
     private javax.swing.JTextField jTextFieldRazaoSocial3;
-    private javax.swing.JTextField jTextFieldRazaoSocial4;
+    private javax.swing.JTextField jTextFieldRenavam;
     // End of variables declaration//GEN-END:variables
 }

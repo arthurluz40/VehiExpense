@@ -5,7 +5,7 @@
 package com.VehiExpense.visao;
 
 import com.VehiExpense.Persistencia.IProprietarioDAO;
-import com.VehiExpense.Persistencia.ProprietarioDao;
+import com.VehiExpense.Persistencia.ProprietarioDAO;
 import com.VehiExpense.modelos.Proprietario;
 import javax.swing.JOptionPane;
 
@@ -224,7 +224,7 @@ public class TelaCadastroProprietarioPF extends javax.swing.JFrame {
         proprietario.setCnh(Integer.parseInt(jTextFieldCNH.getText()));
         proprietario.setCategoriaCnh(jTextFieldCategoriaCNH.getText());
 
-        IProprietarioDAO proprietarioDAO = new ProprietarioDao();
+        IProprietarioDAO proprietarioDAO = new ProprietarioDAO();
         proprietarioDAO.inserir(proprietario);
         
         JOptionPane.showMessageDialog(this, "Proprietário cadastrado com sucesso!");

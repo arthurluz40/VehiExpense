@@ -6,6 +6,7 @@ package com.VehiExpense.Persistencia;
 
 import com.VehiExpense.modelos.Proprietario;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,5 +18,5 @@ public interface IProprietarioDAO {
     public void atualizar(Proprietario proprietario) throws SQLException;
     public void excluir(int CPF) throws SQLException;
     public Proprietario buscarPorCPF(int CPF) throws SQLException;
-    public List<Proprietario> listarTodos() throws SQLException;
+    public ArrayList<Proprietario> listarTodos() throws SQLException;
 }

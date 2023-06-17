@@ -9,50 +9,29 @@ package com.VehiExpense.modelos;
  * @author aluno
  */
 public class Veiculo {
-    
-    private int idVeiculo = 0;
-    private Marca marca;
-    private Modelo modelo;
-    private String placa ="";
-    private String ano="";
-    private String renavam ="";
-    private String situacao ="";
-    
-    public Veiculo(){
-        
-    }
-    public Veiculo(int idVeiculo,Marca marca,Modelo modelo,String placa,String ano,String renavam,String situacao){
-        this.idVeiculo=idVeiculo;
-        this.marca=marca;
-        this.modelo=modelo;
-        this.placa=placa;
-        this.ano =ano;
-        this.renavam=renavam;
-        this.situacao=situacao;
+
+    private String placa = "";
+    private String renavam = "";
+    private int ano = 0;
+    private String foto = "";
+    private String tipoDeCombustivel = "";
+    private Double kilometragemAtual = 0.0;
+    private String CPF = "";
+    private Modelo idModelo;
+
+    public Veiculo() {
+
     }
 
-    public int getIdVeiculo() {
-        return idVeiculo;
-    }
-
-    public void setIdVeiculo(int idVeiculo) {
-        this.idVeiculo = idVeiculo;
-    }
-
-    public Marca getMarca() {
-        return marca;
-    }
-
-    public void setMarca(Marca marca) {
-        this.marca = marca;
-    }
-
-    public Modelo getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(Modelo modelo) {
-        this.modelo = modelo;
+    public Veiculo(String placa, String renavam, int ano, String foto, String tipoDeCombustilvel, Double kilometragemAtual, String CPF, Modelo idModelo) {
+        this.placa = placa;
+        this.renavam = renavam;
+        this.ano = ano;
+        this.foto = foto;
+        this.tipoDeCombustivel = tipoDeCombustilvel;
+        this.kilometragemAtual = kilometragemAtual;
+        this.CPF = CPF;
+        this.idModelo = idModelo;
     }
 
     public String getPlaca() {
@@ -63,14 +42,6 @@ public class Veiculo {
         this.placa = placa;
     }
 
-    public String getAno() {
-        return ano;
-    }
-
-    public void setAno(String ano) {
-        this.ano = ano;
-    }
-
     public String getRenavam() {
         return renavam;
     }
@@ -79,19 +50,57 @@ public class Veiculo {
         this.renavam = renavam;
     }
 
-    public String getSituacao() {
-        return situacao;
+    public int getAno() {
+        return ano;
     }
 
-    public void setSituacao(String situacao) {
-        this.situacao = situacao;
+    public void setAno(int ano) {
+        this.ano = ano;
+    }  
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+
+    public String getTipoDeCombustivel() {
+        return tipoDeCombustivel;
+    }
+
+    public void setTipoDeCombustivel(String tipoDeCombustivel) {
+        this.tipoDeCombustivel = tipoDeCombustivel;
+    }
+
+    public Double getKilometragemAtual() {
+        return kilometragemAtual;
+    }
+
+    public void setKilometragemAtual(Double kilometragemAtual) {
+        this.kilometragemAtual = kilometragemAtual;
+    }
+
+    public String getCPF() {
+        return CPF;
+    }
+
+    public void setCPF(String CPF) {
+        this.CPF = CPF;
+    }
+
+    public Modelo getIdModelo() {
+        return idModelo;
+    }
+
+    public void setIdModelo(Modelo idModelo) {
+        this.idModelo = idModelo;
     }
 
     @Override
     public String toString() {
-        return "Veiculo{" + "idVeiculo=" + idVeiculo + ", marca=" + marca + ", modelo=" + modelo + ", placa=" + placa + ", ano=" + ano + ", renavam=" + renavam + ", situacao=" + situacao + '}';
+        return "Veiculo{" + ", placa=" + placa + ", renavam=" + renavam + ", ano=" + ano + ", foto=" + foto + ", combustível=" + tipoDeCombustivel + ", quilometragem=" + kilometragemAtual + ", CPF=" + CPF + ", IdModelo=" + idModelo + '}';
     }
-    
-    
-    
+
 }

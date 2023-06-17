@@ -19,10 +19,10 @@ import java.util.List;
  *
  * @author aluno
  */
-public class ProprietarioDao implements IProprietarioDAO{
+public class ProprietarioDAO implements IProprietarioDAO{
       private Connection conexao;
 
-    public ProprietarioDao() throws Exception  {
+    public ProprietarioDAO() throws Exception  {
         conexao = ConexaoBD.getConexao();
     }
 
@@ -77,8 +77,8 @@ public class ProprietarioDao implements IProprietarioDAO{
         return null;
     }
 
-    public List<Proprietario> listarTodos() throws SQLException {
-        List<Proprietario> proprietarios = new ArrayList<>();
+    public ArrayList<Proprietario> listarTodos() throws SQLException {
+        ArrayList<Proprietario> proprietarios = new ArrayList<>();
         String sql = "SELECT * FROM Proprietario";
         try (PreparedStatement stmt = conexao.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {

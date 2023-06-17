@@ -13,14 +13,18 @@ public class Modelo {
     //Atributos
     private int id = 0;
     private String descricao = "";
-    private String url = "";
+    private String foto = "";
     private Marca marcaDoModelo;
 
+    public Modelo() {
+
+    }
+
     //Metodos
-    public Modelo(int id, String descricao, String url, Marca marcaDoModelo) {
+    public Modelo(int id, String descricao, String foto, Marca marcaDoModelo) {
         this.id = id;
         this.descricao = descricao;
-        this.url = url;
+        this.foto = foto;
         this.marcaDoModelo = marcaDoModelo;
     }
 
@@ -30,9 +34,6 @@ public class Modelo {
 
     public void setMarcaDoModelo(Marca marca) {
         this.marcaDoModelo = marca;
-    }
-
-    public Modelo() {
     }
 
     public int getId() {
@@ -51,17 +52,19 @@ public class Modelo {
         this.descricao = descricao;
     }
 
-    public String getUrl() {
-        return url;
+    public String getFoto() {
+        return foto;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
+
+
 
     @Override
     public String toString() {
-        return "Modelo{" + "id=" + id + ", descricao=" + descricao + ", url=" + url + ", marca=" + marcaDoModelo + '}';
+        return "Modelo{" + "id=" + id + ", descricao=" + descricao + ", url=" + foto + ", marca=" + marcaDoModelo + '}';
     }
 
 }

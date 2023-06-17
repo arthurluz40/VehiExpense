@@ -479,7 +479,7 @@ setLocationRelativeTo(null);
                 String[] linha = new String[4];
                 linha[0] = modelo.getId() + "";
                 linha[1] = modelo.getDescricao();
-                linha[2] = modelo.getUrl();
+                linha[2] = modelo.getFoto();
                 linha[3] = modelo.getMarcaDoModelo().getId() + "- " + modelo.getMarcaDoModelo().getDescricao();
 
                 model.addRow(linha);
