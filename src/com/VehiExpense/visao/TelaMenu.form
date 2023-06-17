@@ -42,11 +42,11 @@
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jButtonCadastoPF2" max="32767" attributes="0"/>
-                      <Component id="jButtonCadastoPF1" max="32767" attributes="0"/>
-                      <Component id="jButtonCadastoPF" max="32767" attributes="0"/>
-                      <Component id="jButtonCadastoPF5" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jButtonCadastoPF6" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jButtonCadastoMarca" max="32767" attributes="0"/>
+                      <Component id="jButtonEmitirRelatorio" max="32767" attributes="0"/>
+                      <Component id="jButtonCadastoProprietario" max="32767" attributes="0"/>
+                      <Component id="jButtonCadastoModelo" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jButtonCadastoVeiculo" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -65,22 +65,22 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButtonCadastoPF" min="-2" pref="43" max="-2" attributes="0"/>
+                  <Component id="jButtonCadastoProprietario" min="-2" pref="43" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButtonCadastoPF6" min="-2" pref="43" max="-2" attributes="0"/>
+                  <Component id="jButtonCadastoVeiculo" min="-2" pref="43" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButtonCadastoPF5" min="-2" pref="43" max="-2" attributes="0"/>
+                  <Component id="jButtonCadastoModelo" min="-2" pref="43" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButtonCadastoPF2" min="-2" pref="43" max="-2" attributes="0"/>
+                  <Component id="jButtonCadastoMarca" min="-2" pref="43" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jButtonCadastoPF1" min="-2" pref="43" max="-2" attributes="0"/>
+                  <Component id="jButtonEmitirRelatorio" min="-2" pref="43" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButtonCadastoPF">
+        <Component class="javax.swing.JButton" name="jButtonCadastoProprietario">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -93,6 +93,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Cadastrar Propriet&#xe1;rio"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCadastoProprietarioActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
@@ -101,7 +104,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonCadastoPF1">
+        <Component class="javax.swing.JButton" name="jButtonEmitirRelatorio">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -115,7 +118,7 @@
             <Property name="text" type="java.lang.String" value="Emitir Relat&#xf3;rio"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonCadastoPF2">
+        <Component class="javax.swing.JButton" name="jButtonCadastoMarca">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -129,10 +132,10 @@
             <Property name="text" type="java.lang.String" value="Cadastrar Marca"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCadastoPF2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCadastoMarcaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonCadastoPF5">
+        <Component class="javax.swing.JButton" name="jButtonCadastoModelo">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -146,10 +149,10 @@
             <Property name="text" type="java.lang.String" value="Cadastrar Modelo"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCadastoPF5ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCadastoModeloActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonCadastoPF6">
+        <Component class="javax.swing.JButton" name="jButtonCadastoVeiculo">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -163,7 +166,7 @@
             <Property name="text" type="java.lang.String" value="Cadastrar Veiculo"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCadastoPF6ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCadastoVeiculoActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel3">

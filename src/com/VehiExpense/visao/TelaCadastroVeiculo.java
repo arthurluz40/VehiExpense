@@ -42,6 +42,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         jTextFieldRazaoSocial2 = new javax.swing.JTextField();
         jTextFieldRazaoSocial3 = new javax.swing.JTextField();
         jTextFieldRazaoSocial4 = new javax.swing.JTextField();
+        jButtonMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,6 +91,8 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         jLabelRazaoSocial3.setForeground(new java.awt.Color(0, 0, 0));
         jLabelRazaoSocial3.setText("Renavam");
 
+        jButtonMenu.setText("MENU");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -124,6 +127,10 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                                         .addComponent(jTextFieldRazaoSocial4)))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButtonMenu)
+                .addGap(29, 29, 29))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,7 +165,9 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldRazaoSocial4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelRazaoSocial3))
-                .addGap(141, 141, 141))
+                .addGap(94, 94, 94)
+                .addComponent(jButtonMenu)
+                .addGap(25, 25, 25))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -211,6 +220,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelCNPJ;
