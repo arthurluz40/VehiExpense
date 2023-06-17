@@ -48,8 +48,8 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
             // Tratar exceção
             e.printStackTrace();
         }
-        
-                try {
+
+        try {
             IModeloDAO modeloDB = null;
             modeloDB = new ModeloDAO();
             atualizarGrid(modeloDB.listaModelos());
@@ -134,6 +134,11 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
         jButtonDeletar.setText("Deletar");
 
         jButtonAlterar.setText("Alterar");
+        jButtonAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAlterarActionPerformed(evt);
+            }
+        });
 
         jButtonIncluir.setText("Incluir");
         jButtonIncluir.addActionListener(new java.awt.event.ActionListener() {
@@ -177,6 +182,11 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
                 "ID", "Modelo", "URL", "Marca"
             }
         ));
+        jTableCadastrarModelo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableCadastrarModeloMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableCadastrarModelo);
 
         jPanel5.setBackground(new java.awt.Color(0, 153, 153));
@@ -304,19 +314,42 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
 
             Modelo modelo = null;
             System.out.println(ID[0]);
-            modelo = new Modelo(0, jTextFieldModelo.getText(), jTextFieldUrl.getText(), Integer.parseInt(ID[0]));
+            modelo = new Modelo(0, jTextFieldModelo.getText(), jTextFieldUrl.getText(), modelo.getMarca());
 
             IModeloDAO modeloDB = null;
             modeloDB = new ModeloDAO();
             modeloDB.inserir(modelo);
-            //atualizarGrid(modeloDB.listaModelos());
+            atualizarGrid(modeloDB.listaModelos());
             JOptionPane.showMessageDialog(this, "Modelo cadastrada com sucesso!");
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro.getMessage());
         }
     }//GEN-LAST:event_jButtonIncluirActionPerformed
 
-        private void atualizarGrid(ArrayList<Modelo> listaModelos) {
+    private void jTableCadastrarModeloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCadastrarModeloMouseClicked
+        jTextFieldID.setText(jTableCadastrarModelo.getValueAt(jTableCadastrarModelo.getSelectedRow(), 0).toString());
+        jTextFieldModelo.setText(jTableCadastrarModelo.getValueAt(jTableCadastrarModelo.getSelectedRow(), 1).toString());
+        jTextFieldUrl.setText(jTableCadastrarModelo.getValueAt(jTableCadastrarModelo.getSelectedRow(), 2).toString());
+    }//GEN-LAST:event_jTableCadastrarModeloMouseClicked
+
+    private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
+        try {
+            Modelo modelo = null;
+            modelo = new Modelo((Integer.parseInt(jTextFieldID.getText())), jTextFieldModelo.getText(), jTextFieldUrl.getText(), modelo.getMarca());
+
+            IModeloDAO modeloDB = null;
+            modeloDB = new ModeloDAO();
+            modeloDB.atualizar(modelo);
+            JOptionPane.showMessageDialog(this, "Categoria de gastos atualizada!");
+
+            atualizarGrid(modeloDB.listaModelos());
+
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro.getMessage());
+        }
+    }//GEN-LAST:event_jButtonAlterarActionPerformed
+
+    private void atualizarGrid(ArrayList<Modelo> listaModelos) {
         try {
             DefaultTableModel model = (DefaultTableModel) jTableCadastrarModelo.getModel();
             model.setNumRows(0);
@@ -326,7 +359,7 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
                 linha[0] = modelo.getId() + "";
                 linha[1] = modelo.getDescricao();
                 linha[2] = modelo.getUrl();
-                linha[3] = Integer.toString(modelo.getMarca());
+                linha[3] = Integer.toString(modelo.getMarca().getId());
 
                 model.addRow(linha);
             }
@@ -334,7 +367,7 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, erro.getMessage());
         }
     }
-    
+
     /**
      * @param args the command line arguments
      */

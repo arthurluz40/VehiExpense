@@ -33,8 +33,18 @@ public class ModeloDAO implements IModeloDAO {
             stmt.executeUpdate();
         }
     }
-    
-        @Override
+
+    public void atualizar(Modelo modelo) throws SQLException {
+        String sql = "UPDATE modelo SET descricaomodleo = ?, foto = ? WHERE Id = ?";
+        try ( PreparedStatement stmt = conexao.prepareStatement(sql)) {
+            stmt.setString(1, modelo.getDescricao());
+            stmt.setString(2, modelo.getUrl());
+            stmt.setInt(3, modelo.getId());
+            stmt.executeUpdate();
+        }
+    }
+
+    @Override
     public ArrayList<Modelo> listaModelos() throws SQLException {
         ArrayList<Modelo> modelos = new ArrayList<>();
         String sql = "SELECT * FROM modelo";
@@ -44,11 +54,31 @@ public class ModeloDAO implements IModeloDAO {
                 modelo.setId(rs.getInt("Id"));
                 modelo.setDescricao(rs.getString("descricaomodleo"));
                 modelo.setUrl(rs.getString("foto"));
-                modelo.setMarca(Integer.parseInt(rs.getString("idmarca")));
+                //modelo.setMarca(Integer.parseInt(rs.getString("idmarca")));
                 modelos.add(modelo);
             }
         }
         return modelos;
+    }
+
+    @Override
+    public Modelo buscarPorId(int id) throws SQLException {
+        String sql = "SELECT * FROM modelo WHERE Id = ?";
+        try ( PreparedStatement stmt = conexao.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            try ( ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    Modelo modelo = new Modelo();
+                    MarcaDAO marca = new MarcaDAO();
+                    modelo.setId(rs.getInt("Id"));
+                    modelo.setDescricao(rs.getString("descricaoModleo"));
+                    modelo.setMarca(marca.buscarPorId((rs.getInt("idmarca"))));
+                    return modelo;
+                }
+            } catch (Exception e) {
+            }
+        }
+        return null;
     }
 
 }

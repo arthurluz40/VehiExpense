@@ -66,6 +66,23 @@ public class MarcaDAO implements IMarcaDAO {
         return marcas;
     }
     
+    @Override
+        public Marca buscarPorId(int id) throws SQLException {
+        String sql = "SELECT * FROM modelo WHERE Id = ?";
+        try ( PreparedStatement stmt = conexao.prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            try ( ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    Marca marca = new Marca();
+                    marca.setId(rs.getInt("Id"));
+                    marca.setDescricao(rs.getString("descricaoModleo"));
+                    marca.setUrl(rs.getString(("url")));
+                    return marca;
+                }
+            }
+        }
+        return null;
+    }
     
     
 

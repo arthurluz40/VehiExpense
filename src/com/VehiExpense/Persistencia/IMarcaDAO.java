@@ -21,4 +21,6 @@ public interface IMarcaDAO {
     public void excluir(Marca marca) throws SQLException;
 
     public ArrayList<Marca> listaMarcas() throws SQLException;
+
+    public Marca buscarPorId(int id) throws SQLException;
 }

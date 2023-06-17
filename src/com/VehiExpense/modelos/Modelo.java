@@ -14,25 +14,25 @@ public class Modelo {
     private int id = 0;
     private String descricao = "";
     private String url = "";
-    private int marca;
+    private Marca marca;
 
     //Metodos
-    public Modelo(int id, String descricao, String url, int marca) {
+    public Modelo(int id, String descricao, String url, Marca marca) {
         this.id = id;
         this.descricao = descricao;
         this.url = url;
         this.marca = marca;
     }
 
-    public Modelo() {
-    }
-
-    public int getMarca() {
+    public Marca getMarca() {
         return marca;
     }
 
-    public void setMarca(int marca) {
+    public void setMarca(Marca marca) {
         this.marca = marca;
+    }
+
+    public Modelo() {
     }
 
     public int getId() {
