@@ -27,7 +27,7 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
      */
     public TelaCadastrarModelo1() {
         initComponents();
-
+setLocationRelativeTo(null);
         try {
             MarcaDAO marcaDAO = new MarcaDAO();
             ArrayList<Marca> categorias = marcaDAO.listaMarcas();
@@ -268,6 +268,11 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
         jLabelLogo.setText("LOGO");
 
         jButtonMenu.setText("MENU");
+        jButtonMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMenuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -419,6 +424,13 @@ public class TelaCadastrarModelo1 extends javax.swing.JFrame {
             jLabelLogo.getHeight(), 1));
             jLabelLogo.setIcon(iconLogo);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuActionPerformed
+        // TODO add your handling code here:
+        TelaMenu1 frame = new TelaMenu1();
+        frame.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButtonMenuActionPerformed
 
     private void atualizarGrid(ArrayList<Modelo> listaModelos) {
         try {

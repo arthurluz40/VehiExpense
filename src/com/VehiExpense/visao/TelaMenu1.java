@@ -15,6 +15,7 @@ public class TelaMenu1 extends javax.swing.JFrame {
      */
     public TelaMenu1() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -54,6 +55,11 @@ public class TelaMenu1 extends javax.swing.JFrame {
         jButtonEmitirRelatorio.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jButtonEmitirRelatorio.setForeground(new java.awt.Color(0, 0, 0));
         jButtonEmitirRelatorio.setText("Emitir Relatório");
+        jButtonEmitirRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEmitirRelatorioActionPerformed(evt);
+            }
+        });
 
         jButtonCadastoMarca.setBackground(new java.awt.Color(204, 204, 204));
         jButtonCadastoMarca.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
@@ -176,6 +182,13 @@ public class TelaMenu1 extends javax.swing.JFrame {
         this.setVisible(false);
 
     }//GEN-LAST:event_jButtonCadastoVeiculoActionPerformed
+
+    private void jButtonEmitirRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEmitirRelatorioActionPerformed
+        // TODO add your handling code here:
+        TelaEmitirRelatorio frame = new TelaEmitirRelatorio();
+        frame.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButtonEmitirRelatorioActionPerformed
 
     /**
      * @param args the command line arguments

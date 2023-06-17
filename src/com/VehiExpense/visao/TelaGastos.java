@@ -22,6 +22,7 @@ public class TelaGastos extends javax.swing.JFrame {
      */
     public TelaGastos() {
         initComponents();
+        setLocationRelativeTo(null);
         // Adicionar valores da enumeração ao JComboBox
         try {
     CategoriaDeGastosDAO categoriaDeGastosDAO = new CategoriaDeGastosDAO();
@@ -121,6 +122,11 @@ public class TelaGastos extends javax.swing.JFrame {
         jLabel6.setText("Data");
 
         jButtonMenu.setText("MENU");
+        jButtonMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMenuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -200,6 +206,13 @@ public class TelaGastos extends javax.swing.JFrame {
     private void jTextFieldValorGastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldValorGastoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldValorGastoActionPerformed
+
+    private void jButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuActionPerformed
+        // TODO add your handling code here:
+        TelaMenu1 frame = new TelaMenu1();
+        frame.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButtonMenuActionPerformed
 
     /**
      * @param args the command line arguments

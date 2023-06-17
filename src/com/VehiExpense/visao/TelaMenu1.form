@@ -104,6 +104,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Emitir Relat&#xf3;rio"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEmitirRelatorioActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonCadastoMarca">
       <Properties>

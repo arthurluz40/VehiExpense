@@ -15,6 +15,7 @@ public class TelaEmitirRelatorio extends javax.swing.JFrame {
      */
     public TelaEmitirRelatorio() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -90,6 +91,11 @@ public class TelaEmitirRelatorio extends javax.swing.JFrame {
         });
 
         jButtonMenu.setText("MENU");
+        jButtonMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMenuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -167,6 +173,13 @@ public class TelaEmitirRelatorio extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuActionPerformed
+        // TODO add your handling code here:
+        TelaMenu1 frame = new TelaMenu1();
+        frame.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButtonMenuActionPerformed
 
     /**
      * @param args the command line arguments

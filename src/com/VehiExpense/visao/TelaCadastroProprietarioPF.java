@@ -129,6 +129,11 @@ public class TelaCadastroProprietarioPF extends javax.swing.JFrame {
         jLabel7.setText("Categoria CNH");
 
         jButtonMenu.setText("MENU");
+        jButtonMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMenuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -245,6 +250,13 @@ public class TelaCadastroProprietarioPF extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, erro.getMessage());
     }
     }//GEN-LAST:event_jButtonCadastoPFActionPerformed
+
+    private void jButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuActionPerformed
+        // TODO add your handling code here:
+        TelaMenu1 frame = new TelaMenu1();
+        frame.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButtonMenuActionPerformed
 
     /**
      * @param args the command line arguments
