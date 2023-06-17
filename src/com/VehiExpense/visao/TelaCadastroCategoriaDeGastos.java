@@ -8,6 +8,7 @@ import com.VehiExpense.Persistencia.CategoriaDeGastosDAO;
 import com.VehiExpense.Persistencia.ICategoriaDeGastosDAO;
 import com.VehiExpense.modelos.CategoriaDeGastos;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -240,22 +241,36 @@ public class TelaCadastroCategoriaDeGastos extends javax.swing.JFrame {
     private void jTextFieldCategoriaDeGastosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCategoriaDeGastosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCategoriaDeGastosActionPerformed
+    private HashMap<Integer, CategoriaDeGastos> categoriasDeGastos;
 
+
+    public void inicializarHashMap() {
+    categoriasDeGastos = new HashMap<>();
+}
     private void jButtonCadastrarCategoriaDeGastosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarCategoriaDeGastosActionPerformed
         try {
-            CategoriaDeGastos categoriaDeGastos = null;
-            categoriaDeGastos = new CategoriaDeGastos(0, jTextFieldCategoriaDeGastos.getText());
+        String nomeCategoria = jTextFieldCategoriaDeGastos.getText();
+        int idCategoria = 0;
 
-            ICategoriaDeGastosDAO categoriaDeGastosBD = null;
-            categoriaDeGastosBD = new CategoriaDeGastosDAO();
-            categoriaDeGastosBD.inserir(categoriaDeGastos);
-            JOptionPane.showMessageDialog(this, "Categoria de gastos cadastrada com sucesso!");
-
-            atualizarGrid(categoriaDeGastosBD.listaCategoriaDeGastos());
-
-        } catch (Exception erro) {
-            JOptionPane.showMessageDialog(this, erro.getMessage());
+        if (categoriasDeGastos == null) {
+            categoriasDeGastos = new HashMap<>();
+        } else {
+            idCategoria = categoriasDeGastos.size() + 1;
         }
+
+        CategoriaDeGastos categoriaDeGastos = new CategoriaDeGastos(idCategoria, nomeCategoria);
+        categoriasDeGastos.put(idCategoria, categoriaDeGastos);
+
+        ICategoriaDeGastosDAO categoriaDeGastosBD = new CategoriaDeGastosDAO();
+        categoriaDeGastosBD.inserir(categoriaDeGastos);
+
+        JOptionPane.showMessageDialog(this, "Categoria de gastos cadastrada com sucesso!");
+
+        atualizarGrid(new ArrayList<>(categoriasDeGastos.values()));
+
+    } catch (Exception erro) {
+        JOptionPane.showMessageDialog(this, erro.getMessage());
+    }
     }//GEN-LAST:event_jButtonCadastrarCategoriaDeGastosActionPerformed
 
     private void jButtonAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtualizarActionPerformed
@@ -347,19 +362,19 @@ public class TelaCadastroCategoriaDeGastos extends javax.swing.JFrame {
 
     private void atualizarGrid(ArrayList<CategoriaDeGastos> listaCategoriaDeGastos) {
         try {
-            DefaultTableModel model = (DefaultTableModel) jTableCategoriaDeGasto.getModel();
-            model.setNumRows(0);
-            for (int pos = 0; pos < listaCategoriaDeGastos.size(); pos++) {
-                CategoriaDeGastos categoriaDeGastos = listaCategoriaDeGastos.get(pos);
-                String[] linha = new String[2];
-                linha[0] = categoriaDeGastos.getId() + "";
-                linha[1] = categoriaDeGastos.getDescricaoCategoriaDeGasto();
+        DefaultTableModel model = (DefaultTableModel) jTableCategoriaDeGasto.getModel();
+        model.setRowCount(0);
 
-                model.addRow(linha);
-            }
-        } catch (Exception erro) {
-            JOptionPane.showMessageDialog(rootPane, erro.getMessage());
+        for (CategoriaDeGastos categoriaDeGastos : listaCategoriaDeGastos) {
+            String[] linha = new String[2];
+            linha[0] = String.valueOf(categoriaDeGastos.getId());
+            linha[1] = categoriaDeGastos.getDescricaoCategoriaDeGasto();
+
+            model.addRow(linha);
         }
+    } catch (Exception erro) {
+        JOptionPane.showMessageDialog(rootPane, erro.getMessage());
+    }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
