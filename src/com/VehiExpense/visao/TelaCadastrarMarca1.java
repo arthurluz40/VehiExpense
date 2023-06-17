@@ -65,6 +65,7 @@ public class TelaCadastrarMarca1 extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jButtonMenu = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jButtonMENU = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -224,6 +225,13 @@ public class TelaCadastrarMarca1 extends javax.swing.JFrame {
 
         jLabel2.setText("LOGO");
 
+        jButtonMENU.setText("MENU");
+        jButtonMENU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMENUActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -233,11 +241,13 @@ public class TelaCadastrarMarca1 extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButtonMenu)
-                        .addGap(25, 25, 25))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(239, 239, 239))))
+                        .addGap(239, 239, 239))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonMENU)
+                            .addComponent(jButtonMenu))
+                        .addGap(22, 22, 22))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
@@ -271,7 +281,9 @@ public class TelaCadastrarMarca1 extends javax.swing.JFrame {
                         .addGap(18, 18, Short.MAX_VALUE)))
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonMENU))
                 .addGap(82, 82, 82)
                 .addComponent(jButtonMenu)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -371,11 +383,15 @@ public class TelaCadastrarMarca1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     private void jButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuActionPerformed
+// nAO CONSEGUI EXCLUIR ESSA METODO INUTILIZADO...
+    }//GEN-LAST:event_jButtonMenuActionPerformed
+
+    private void jButtonMENUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMENUActionPerformed
         // TODO add your handling code here:
         TelaMenu1 frame = new TelaMenu1();
         frame.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButtonMenuActionPerformed
+    }//GEN-LAST:event_jButtonMENUActionPerformed
 
     private void atualizarGrid(ArrayList<Marca> listaMarcas) {
         try {
@@ -443,6 +459,7 @@ public class TelaCadastrarMarca1 extends javax.swing.JFrame {
     private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonDeletar;
     private javax.swing.JButton jButtonIncluir;
+    private javax.swing.JButton jButtonMENU;
     private javax.swing.JButton jButtonMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

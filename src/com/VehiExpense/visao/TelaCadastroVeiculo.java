@@ -47,12 +47,11 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel2.setBackground(new java.awt.Color(84, 154, 141));
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Cadastro Veículo");
 
@@ -73,23 +72,18 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/VehiExpense/imagens/logo_arc_nova-removebg-preview (1).png"))); // NOI18N
 
         jLabelEmail.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelEmail.setForeground(new java.awt.Color(0, 0, 0));
         jLabelEmail.setText("Placa");
 
         jLabelCNPJ.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelCNPJ.setForeground(new java.awt.Color(0, 0, 0));
         jLabelCNPJ.setText("Marca");
 
         jLabelRazaoSocial.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelRazaoSocial.setForeground(new java.awt.Color(0, 0, 0));
         jLabelRazaoSocial.setText("Modelo");
 
         jLabelRazaoSocial1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelRazaoSocial1.setForeground(new java.awt.Color(0, 0, 0));
         jLabelRazaoSocial1.setText("Ano");
 
         jLabelRazaoSocial3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabelRazaoSocial3.setForeground(new java.awt.Color(0, 0, 0));
         jLabelRazaoSocial3.setText("Renavam");
 
         jButtonMenu.setText("MENU");
