@@ -27,21 +27,28 @@ public class TelaMenu1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButtonCadastoProprietario = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jButtonEmitirRelatorio = new javax.swing.JButton();
-        jButtonCadastoMarca = new javax.swing.JButton();
-        jButtonCadastoModelo = new javax.swing.JButton();
-        jButtonCadastoVeiculo = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jButtonCadastoProprietario = new javax.swing.JButton();
+        jButtonCadastoVeiculo = new javax.swing.JButton();
+        jButtonCadastoModelo = new javax.swing.JButton();
+        jButtonCadastoMarca = new javax.swing.JButton();
+        jButtonEmitirRelatorio = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(0, 153, 153));
+        setBackground(new java.awt.Color(84, 154, 141));
+        setPreferredSize(new java.awt.Dimension(800, 600));
+
+        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+
+        jPanel1.setBackground(new java.awt.Color(84, 154, 141));
+        jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
 
         jButtonCadastoProprietario.setBackground(new java.awt.Color(204, 204, 204));
         jButtonCadastoProprietario.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jButtonCadastoProprietario.setForeground(new java.awt.Color(0, 0, 0));
         jButtonCadastoProprietario.setText("Cadastrar Proprietário");
         jButtonCadastoProprietario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,41 +56,8 @@ public class TelaMenu1 extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/VehiExpense/imagens/logo_arc_nova-removebg-preview (1).png"))); // NOI18N
-
-        jButtonEmitirRelatorio.setBackground(new java.awt.Color(204, 204, 204));
-        jButtonEmitirRelatorio.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jButtonEmitirRelatorio.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonEmitirRelatorio.setText("Emitir Relatório");
-        jButtonEmitirRelatorio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEmitirRelatorioActionPerformed(evt);
-            }
-        });
-
-        jButtonCadastoMarca.setBackground(new java.awt.Color(204, 204, 204));
-        jButtonCadastoMarca.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jButtonCadastoMarca.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonCadastoMarca.setText("Cadastrar Marca");
-        jButtonCadastoMarca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCadastoMarcaActionPerformed(evt);
-            }
-        });
-
-        jButtonCadastoModelo.setBackground(new java.awt.Color(204, 204, 204));
-        jButtonCadastoModelo.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jButtonCadastoModelo.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonCadastoModelo.setText("Cadastrar Modelo");
-        jButtonCadastoModelo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCadastoModeloActionPerformed(evt);
-            }
-        });
-
         jButtonCadastoVeiculo.setBackground(new java.awt.Color(204, 204, 204));
         jButtonCadastoVeiculo.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jButtonCadastoVeiculo.setForeground(new java.awt.Color(0, 0, 0));
         jButtonCadastoVeiculo.setText("Cadastrar Veiculo");
         jButtonCadastoVeiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,53 +65,88 @@ public class TelaMenu1 extends javax.swing.JFrame {
             }
         });
 
-        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+        jButtonCadastoModelo.setBackground(new java.awt.Color(204, 204, 204));
+        jButtonCadastoModelo.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jButtonCadastoModelo.setText("Cadastrar Modelo");
+        jButtonCadastoModelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastoModeloActionPerformed(evt);
+            }
+        });
 
+        jButtonCadastoMarca.setBackground(new java.awt.Color(204, 204, 204));
+        jButtonCadastoMarca.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jButtonCadastoMarca.setText("Cadastrar Marca");
+        jButtonCadastoMarca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastoMarcaActionPerformed(evt);
+            }
+        });
+
+        jButtonEmitirRelatorio.setBackground(new java.awt.Color(204, 204, 204));
+        jButtonEmitirRelatorio.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
+        jButtonEmitirRelatorio.setText("Emitir Relatório");
+        jButtonEmitirRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEmitirRelatorioActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/VehiExpense/imagens/logo_arc_nova-removebg-preview (1).png"))); // NOI18N
+
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setPreferredSize(new java.awt.Dimension(227, 60));
+
+        jLabel1.setBackground(new java.awt.Color(204, 204, 204));
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Menu");
+        jLabel1.setPreferredSize(new java.awt.Dimension(227, 35));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel1)
-                .addContainerGap(25, Short.MAX_VALUE))
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 107, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonCadastoMarca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonEmitirRelatorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonCadastoProprietario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonCadastoModelo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonCadastoVeiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(113, Short.MAX_VALUE))
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(159, 159, 159)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(268, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButtonEmitirRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonCadastoMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonCadastoModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonCadastoVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonCadastoProprietario))
+                        .addGap(268, 268, 268))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(309, 309, 309))))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
                 .addComponent(jButtonCadastoProprietario, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonCadastoVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -147,7 +156,31 @@ public class TelaMenu1 extends javax.swing.JFrame {
                 .addComponent(jButtonCadastoMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonEmitirRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77))
+                .addContainerGap(115, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -160,13 +193,12 @@ public class TelaMenu1 extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButtonCadastoProprietarioActionPerformed
 
-    private void jButtonCadastoMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastoMarcaActionPerformed
+    private void jButtonCadastoVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastoVeiculoActionPerformed
         // TODO add your handling code here:
-        TelaCadastrarMarca1 frame = new TelaCadastrarMarca1();
+        TelaCadastroVeiculo frame = new TelaCadastroVeiculo();
         frame.setVisible(true);
         this.setVisible(false);
-
-    }//GEN-LAST:event_jButtonCadastoMarcaActionPerformed
+    }//GEN-LAST:event_jButtonCadastoVeiculoActionPerformed
 
     private void jButtonCadastoModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastoModeloActionPerformed
         // TODO add your handling code here:
@@ -175,13 +207,12 @@ public class TelaMenu1 extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButtonCadastoModeloActionPerformed
 
-    private void jButtonCadastoVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastoVeiculoActionPerformed
+    private void jButtonCadastoMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastoMarcaActionPerformed
         // TODO add your handling code here:
-        TelaCadastroVeiculo frame = new TelaCadastroVeiculo();
+        TelaCadastrarMarca1 frame = new TelaCadastrarMarca1();
         frame.setVisible(true);
         this.setVisible(false);
-
-    }//GEN-LAST:event_jButtonCadastoVeiculoActionPerformed
+    }//GEN-LAST:event_jButtonCadastoMarcaActionPerformed
 
     private void jButtonEmitirRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEmitirRelatorioActionPerformed
         // TODO add your handling code here:
@@ -233,6 +264,8 @@ public class TelaMenu1 extends javax.swing.JFrame {
     private javax.swing.JButton jButtonEmitirRelatorio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }
