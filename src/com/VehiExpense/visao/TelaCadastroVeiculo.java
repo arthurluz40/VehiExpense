@@ -119,6 +119,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         jButtonDeletar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableCadastrarVeiculo = new javax.swing.JTable();
+        jButtonAlterar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -195,13 +196,13 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         jTableCadastrarVeiculo.setBackground(new java.awt.Color(204, 204, 204));
         jTableCadastrarVeiculo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Placa", "Proprietário", "Ano", "Modelo", "Foto"
+                "Placa", "Proprietário", "Ano", "Modelo", "Renavam", "Quilometragem", "Foto", "Combustivel"
             }
         ));
         jTableCadastrarVeiculo.setPreferredSize(new java.awt.Dimension(225, 80));
@@ -212,9 +213,18 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTableCadastrarVeiculo);
         if (jTableCadastrarVeiculo.getColumnModel().getColumnCount() > 0) {
-            jTableCadastrarVeiculo.getColumnModel().getColumn(4).setMinWidth(0);
-            jTableCadastrarVeiculo.getColumnModel().getColumn(4).setPreferredWidth(0);
+            jTableCadastrarVeiculo.getColumnModel().getColumn(6).setMinWidth(0);
+            jTableCadastrarVeiculo.getColumnModel().getColumn(6).setPreferredWidth(0);
+            jTableCadastrarVeiculo.getColumnModel().getColumn(7).setMinWidth(0);
+            jTableCadastrarVeiculo.getColumnModel().getColumn(7).setPreferredWidth(0);
         }
+
+        jButtonAlterar.setText("Alterar");
+        jButtonAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAlterarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -249,8 +259,8 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                                             .addComponent(jLabelRazaoSocial6))
                                         .addGap(18, 18, 18)))
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldPlaca, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldAno, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldPlaca)
+                                    .addComponent(jTextFieldAno)
                                     .addComponent(jTextFieldRazaoSocial3)
                                     .addComponent(jTextFieldRenavam)
                                     .addComponent(jTextFieldQuilometragem)
@@ -259,14 +269,17 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                                         .addComponent(jComboBoxTipoDeCombustivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(jButtonIncluir)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButtonAlterar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jButtonDeletar))
-                                    .addComponent(jComboBoxProprietario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                    .addComponent(jComboBoxProprietario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 212, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonMenu)
                 .addGap(29, 29, 29))
         );
@@ -275,7 +288,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 103, Short.MAX_VALUE)
+                        .addGap(0, 101, Short.MAX_VALUE)
                         .addComponent(jLabel2))
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -308,7 +321,8 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                     .addComponent(jComboBoxTipoDeCombustivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelRazaoSocial5)
                     .addComponent(jButtonIncluir)
-                    .addComponent(jButtonDeletar))
+                    .addComponent(jButtonDeletar)
+                    .addComponent(jButtonAlterar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelRazaoSocial6)
@@ -316,12 +330,11 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(37, 37, 37)
-                        .addComponent(jButtonMenu)
-                        .addGap(25, 25, 25))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButtonMenu))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -360,7 +373,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
             Veiculo veiculo = null;
             String proprietario = jComboBoxProprietario.getSelectedItem().toString();
             String[] cpfProprietario = proprietario.split("-");
-            veiculo = new Veiculo(jTextFieldPlaca.getText(), jTextFieldRenavam.getText(), Integer.parseInt(jTextFieldAno.getText()), modeloDAO.buscarPorId(Integer.parseInt(ID[0])).getFoto(), jComboBoxTipoDeCombustivel.getSelectedItem().toString(), Double.parseDouble(jTextFieldQuilometragem.getText()), cpfProprietario[0], modeloDAO.buscarPorId(Integer.parseInt(ID[0])));
+            veiculo = new Veiculo(jTextFieldPlaca.getText(), jTextFieldRenavam.getText(), Integer.parseInt(jTextFieldAno.getText()), modeloDAO.buscarPorId(Integer.parseInt(ID[0])).getFoto(), jComboBoxTipoDeCombustivel.getSelectedItem().toString(), Double.parseDouble(jTextFieldQuilometragem.getText()), cpfProprietario[0], modeloDAO.buscarPorId(Integer.parseInt(ID[0])).getId());
 
             IVeiculoDAO veiculoDB = null;
             veiculoDB = new VeiculoDAO();
@@ -386,57 +399,81 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
             String[] cpfProprietario = proprietario.split("-");
 
             Veiculo veiculo = null;
-            veiculo = new Veiculo(jTextFieldPlaca.getText(), jTextFieldRenavam.getText(), Integer.parseInt(jTextFieldAno.getText()), modeloDAO.buscarPorId(Integer.parseInt(ID[0])).getFoto(), jComboBoxTipoDeCombustivel.getSelectedItem().toString(), Double.parseDouble(jTextFieldQuilometragem.getText()), cpfProprietario[0], modeloDAO.buscarPorId(Integer.parseInt(ID[0])));
+            veiculo = new Veiculo(jTextFieldPlaca.getText(), jTextFieldRenavam.getText(), Integer.parseInt(jTextFieldAno.getText()), modeloDAO.buscarPorId(Integer.parseInt(ID[0])).getFoto(), jComboBoxTipoDeCombustivel.getSelectedItem().toString(), Double.parseDouble(jTextFieldQuilometragem.getText()), cpfProprietario[0], modeloDAO.buscarPorId(Integer.parseInt(ID[0])).getId());
 
             IVeiculoDAO veiculoBD = null;
             veiculoBD = new VeiculoDAO();
             veiculoBD.excluir(veiculo);
             JOptionPane.showMessageDialog(this, "Categoria deletada com sucesso!");
 
-            //atualizarGrid(veiculoBD.listaModelos());
+            atualizarGrid(veiculoBD.listaVeiculos());
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(this, erro.getMessage());
         }
     }//GEN-LAST:event_jButtonDeletarActionPerformed
 
     private void jTableCadastrarVeiculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCadastrarVeiculoMouseClicked
-        jTextFieldPlaca.setText(jTableCadastrarVeiculo.getValueAt(jTableCadastrarVeiculo.getSelectedRow(), 0).toString());
+
         try {
             ProprietarioDAO proprietarioDAO = new ProprietarioDAO();
             VeiculoDAO veiculoDAO = new VeiculoDAO();
             ModeloDAO modeloDAO = new ModeloDAO();
-            //proprietarioDAO.buscarPorCPF(jTableCadastrarVeiculo.getValueAt(jTableCadastrarVeiculo.getSelectedRow(), 1).toString());
-            //System.out.println(jComboBoxProprietario.getSelectedItem().toString());
-            //System.out.println(proprietarioDAO.buscarPorCPF(jTableCadastrarVeiculo.getValueAt(jTableCadastrarVeiculo.getSelectedRow(), 1).toString()).getCpf());
-            //System.out.println(proprietarioDAO.buscarPorCPF(jTableCadastrarVeiculo.getValueAt(jTableCadastrarVeiculo.getSelectedRow(), 1).toString()).getNome());
-            //System.out.println((proprietarioDAO.buscarPorCPF(jTableCadastrarVeiculo.getValueAt(jTableCadastrarVeiculo.getSelectedRow(), 1).toString()).getCpf()) + "- " + (proprietarioDAO.buscarPorCPF(jTableCadastrarVeiculo.getValueAt(jTableCadastrarVeiculo.getSelectedRow(), 1).toString()).getNome()));
-
-//jComboBoxProprietario.getSelectedItem().toString().equals((proprietarioDAO.buscarPorCPF(jTableCadastrarVeiculo.getValueAt(jTableCadastrarVeiculo.getSelectedRow(), 1).toString()).getCpf()) + "- " + (proprietarioDAO.buscarPorCPF(jTableCadastrarVeiculo.getValueAt(jTableCadastrarVeiculo.getSelectedRow(), 1).toString()).getNome()))
-            System.out.println(modeloDAO.buscarPorId(veiculoDAO.buscarPorPlaca(jTableCadastrarVeiculo.getValueAt(jTableCadastrarVeiculo.getSelectedRow(), 0).toString()).getAno()));
-
-            for (int i = 0; i <= jComboBoxProprietario.getItemCount(); i++) {
+            System.out.println(modeloDAO.buscarPorId(veiculoDAO.buscarPorPlaca(jTableCadastrarVeiculo.getValueAt(jTableCadastrarVeiculo.getSelectedRow(), 0).toString()).getIdModelo()));
+            for (int i = 0; i < jComboBoxProprietario.getItemCount(); i++) {
                 if (jComboBoxProprietario.getItemAt(i).equals((proprietarioDAO.buscarPorCPF(jTableCadastrarVeiculo.getValueAt(jTableCadastrarVeiculo.getSelectedRow(), 1).toString()).getCpf()) + "- " + (proprietarioDAO.buscarPorCPF(jTableCadastrarVeiculo.getValueAt(jTableCadastrarVeiculo.getSelectedRow(), 1).toString()).getNome()))) {
                     jComboBoxProprietario.setSelectedIndex(i);
                 }
             }
-            //            System.out.println(modeloDAO.buscarPorId(veiculoDAO.buscarPorPlaca(jTableCadastrarVeiculo.getValueAt(jTableCadastrarVeiculo.getSelectedRow(), 0).toString()).getIdModelo().getId()) + "- " + veiculoDAO.buscarPorPlaca(jTableCadastrarVeiculo.getValueAt(jTableCadastrarVeiculo.getSelectedRow(), 0).toString()).getIdModelo().getDescricao());
 
-            for (int i = 0; i <= jComboBoxModelo.getItemCount(); i++) {
-                if (jComboBoxModelo.getItemAt(i).equals((modeloDAO.buscarPorId(veiculoDAO.buscarPorPlaca(jTableCadastrarVeiculo.getValueAt(jTableCadastrarVeiculo.getSelectedRow(), 0).toString()).getIdModelo().getId()) + "- " + veiculoDAO.buscarPorPlaca(jTableCadastrarVeiculo.getValueAt(jTableCadastrarVeiculo.getSelectedRow(), 0).toString()).getIdModelo().getDescricao()))) {
+            for (int i = 0; i < jComboBoxModelo.getItemCount(); i++) {
+                if (jComboBoxModelo.getItemAt(i).equals(modeloDAO.buscarPorId(veiculoDAO.buscarPorPlaca(jTableCadastrarVeiculo.getValueAt(jTableCadastrarVeiculo.getSelectedRow(), 0).toString()).getIdModelo()).getId() + "- " + modeloDAO.buscarPorId(veiculoDAO.buscarPorPlaca(jTableCadastrarVeiculo.getValueAt(jTableCadastrarVeiculo.getSelectedRow(), 0).toString()).getIdModelo()).getDescricao())) {
                     jComboBoxModelo.setSelectedIndex(i);
                     System.out.println("sucesso");
                 }
             }
-
+            for (int i = 0; i < jComboBoxTipoDeCombustivel.getItemCount(); i++) {
+                if (jComboBoxTipoDeCombustivel.getItemAt(i).equals(jTableCadastrarVeiculo.getValueAt(jTableCadastrarVeiculo.getSelectedRow(), 7).toString())) {
+                    jComboBoxTipoDeCombustivel.setSelectedIndex(i);
+                    System.out.println("sucesso");
+                }
+            }
+            jTextFieldPlaca.setText(jTableCadastrarVeiculo.getValueAt(jTableCadastrarVeiculo.getSelectedRow(), 0).toString());
             jComboBoxProprietario.setSelectedItem(proprietarioDAO.buscarPorCPF(jTableCadastrarVeiculo.getValueAt(jTableCadastrarVeiculo.getSelectedRow(), 1).toString()));
+            jTextFieldAno.setText(jTableCadastrarVeiculo.getValueAt(jTableCadastrarVeiculo.getSelectedRow(), 2).toString());
+            jTextFieldRenavam.setText(jTableCadastrarVeiculo.getValueAt(jTableCadastrarVeiculo.getSelectedRow(), 3).toString());
+            jTextFieldQuilometragem.setText(jTableCadastrarVeiculo.getValueAt(jTableCadastrarVeiculo.getSelectedRow(), 4).toString());
 
-            jComboBoxModelo.setSelectedItem(jTableCadastrarVeiculo.getValueAt(jTableCadastrarVeiculo.getSelectedRow(), 2).toString());
         } catch (Exception e) {
         }
 
-        jTextFieldAno.setText(jTableCadastrarVeiculo.getValueAt(jTableCadastrarVeiculo.getSelectedRow(), 2).toString());
 
     }//GEN-LAST:event_jTableCadastrarVeiculoMouseClicked
+
+    private void jButtonAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarActionPerformed
+        try {
+            String pegarID = "";
+            pegarID = (String) jComboBoxModelo.getSelectedItem();
+            String[] ID = pegarID.split("-");
+
+            ModeloDAO modeloDAO = new ModeloDAO();
+            System.out.println(modeloDAO.buscarPorId(Integer.parseInt(ID[0])));
+            String proprietario = jComboBoxProprietario.getSelectedItem().toString();
+            String[] cpfProprietario = proprietario.split("-");
+
+            Veiculo veiculo = null;
+            veiculo = new Veiculo(jTextFieldPlaca.getText(), jTextFieldRenavam.getText(), Integer.parseInt(jTextFieldAno.getText()), modeloDAO.buscarPorId(Integer.parseInt(ID[0])).getFoto(), jComboBoxTipoDeCombustivel.getSelectedItem().toString(), Double.parseDouble(jTextFieldQuilometragem.getText()), cpfProprietario[0], modeloDAO.buscarPorId(Integer.parseInt(ID[0])).getId());
+
+            IVeiculoDAO veiculoDB = null;
+            veiculoDB = new VeiculoDAO();
+            veiculoDB.atualizar(veiculo);
+            JOptionPane.showMessageDialog(this, "Categoria de gastos atualizada!");
+
+            atualizarGrid(veiculoDB.listaVeiculos());
+
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(this, erro.getMessage());
+        }
+    }//GEN-LAST:event_jButtonAlterarActionPerformed
 
     private void atualizarGrid(ArrayList<Veiculo> listaVeiculos) {
         try {
@@ -446,12 +483,15 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
                 Veiculo veiculo = listaVeiculos.get(pos);
                 ModeloDAO modelo = new ModeloDAO();
 
-                String[] linha = new String[5];
+                String[] linha = new String[8];
                 linha[0] = veiculo.getPlaca();
                 linha[1] = veiculo.getCPF();
                 linha[2] = Integer.toString(veiculo.getAno());
-                linha[3] = modelo.buscarPorId(veiculo.getIdModelo().getId()).getDescricao();
-                linha[4] = veiculo.getFoto();
+                linha[3] = modelo.buscarPorId(veiculo.getIdModelo()).getDescricao();
+                linha[4] = veiculo.getRenavam();
+                linha[5] = Double.toString(veiculo.getKilometragemAtual());
+                linha[6] = veiculo.getFoto();
+                linha[7] = veiculo.getTipoDeCombustivel();
 
                 model.addRow(linha);
             }
@@ -496,6 +536,7 @@ public class TelaCadastroVeiculo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAlterar;
     private javax.swing.JButton jButtonDeletar;
     private javax.swing.JButton jButtonIncluir;
     private javax.swing.JButton jButtonMenu;

@@ -17,13 +17,13 @@ public class Veiculo {
     private String tipoDeCombustivel = "";
     private Double kilometragemAtual = 0.0;
     private String CPF = "";
-    private Modelo idModelo;
+    private int idModelo;
 
     public Veiculo() {
 
     }
 
-    public Veiculo(String placa, String renavam, int ano, String foto, String tipoDeCombustilvel, Double kilometragemAtual, String CPF, Modelo idModelo) {
+    public Veiculo(String placa, String renavam, int ano, String foto, String tipoDeCombustilvel, Double kilometragemAtual, String CPF, int idModelo) {
         this.placa = placa;
         this.renavam = renavam;
         this.ano = ano;
@@ -90,11 +90,11 @@ public class Veiculo {
         this.CPF = CPF;
     }
 
-    public Modelo getIdModelo() {
+    public int getIdModelo() {
         return idModelo;
     }
 
-    public void setIdModelo(Modelo idModelo) {
+    public void setIdModelo(int idModelo) {
         this.idModelo = idModelo;
     }
 

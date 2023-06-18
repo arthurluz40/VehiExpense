@@ -34,14 +34,30 @@ public class VeiculoDAO implements IVeiculoDAO {
             stmt.setString(5, veiculo.getTipoDeCombustivel());
             stmt.setDouble(6, veiculo.getKilometragemAtual());
             stmt.setString(7, veiculo.getCPF());
-            stmt.setObject(8, veiculo.getIdModelo().getId());
+            stmt.setInt(8, veiculo.getIdModelo());
+            stmt.executeUpdate();
+        }
+    }
+
+    public void atualizar(Veiculo veiculo) throws SQLException {
+        String sql = "UPDATE carro SET renavam = ?, ano = ?, foto = ?, tipodecombustivel = ?, kilometragematual = ?, cpf = ?, idmodelo = ? WHERE placa = ?";
+        try ( PreparedStatement stmt = conexao.prepareStatement(sql)) {
+
+            stmt.setString(1, veiculo.getRenavam());
+            stmt.setInt(2, veiculo.getAno());
+            stmt.setString(3, veiculo.getFoto());
+            stmt.setString(4, veiculo.getTipoDeCombustivel());
+            stmt.setDouble(5, veiculo.getKilometragemAtual());
+            stmt.setString(6, veiculo.getCPF());
+            stmt.setInt(7, veiculo.getIdModelo());
+            stmt.setString(8, veiculo.getPlaca());
             stmt.executeUpdate();
         }
     }
 
     @Override
     public void excluir(Veiculo veiculo) throws SQLException {
-        String sql = "DELETE FROM carro WHERE Id = ?";
+        String sql = "DELETE FROM carro WHERE placa = ?";
         try ( PreparedStatement stmt = conexao.prepareStatement(sql)) {
             stmt.setString(1, veiculo.getPlaca());
             stmt.executeUpdate();
@@ -56,7 +72,7 @@ public class VeiculoDAO implements IVeiculoDAO {
             while (rs.next()) {
                 //VeiculoDAO veiculo = new VeiculoDAO();
                 Veiculo veiculo = new Veiculo();
-                ModeloDAO modelodao = new ModeloDAO();
+                ModeloDAO modeloDAO = new ModeloDAO();
                 veiculo.setPlaca(rs.getString("placa"));
                 veiculo.setRenavam(rs.getString("renavam"));
                 veiculo.setAno(rs.getInt("ano"));
@@ -64,7 +80,7 @@ public class VeiculoDAO implements IVeiculoDAO {
                 veiculo.setTipoDeCombustivel(rs.getString("tipodecombustivel"));
                 veiculo.setKilometragemAtual(rs.getDouble("kilometragematual"));
                 veiculo.setCPF(rs.getString("CPF"));
-                veiculo.setIdModelo(modelodao.buscarPorId((rs.getInt("idmodelo"))));
+                veiculo.setIdModelo(modeloDAO.buscarPorId((rs.getInt("idmodelo"))).getId());
 
                 //veiculo.setMarcaDoModelo(marca.buscarPorId((rs.getInt("idmarca"))));
                 veiculos.add(veiculo);
@@ -78,23 +94,26 @@ public class VeiculoDAO implements IVeiculoDAO {
 
     }
 
-    public Veiculo buscarPorPlaca(String placa) throws SQLException, Exception {
+    @Override
+    public Veiculo buscarPorPlaca(String placa) throws SQLException {
         String sql = "SELECT * FROM carro WHERE placa = ?";
         try ( PreparedStatement stmt = conexao.prepareStatement(sql)) {
             stmt.setString(1, placa);
             try ( ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
                     Veiculo veiculo = new Veiculo();
-                    ModeloDAO modelodao = new ModeloDAO();
+                    ModeloDAO modeloDAO = new ModeloDAO();
                     veiculo.setPlaca(rs.getString("placa"));
-                    veiculo.setRenavam(rs.getString("nome"));
-                    veiculo.setAno(rs.getInt("id"));
-                    veiculo.setFoto(rs.getString("CNH"));
-                    veiculo.setTipoDeCombustivel(rs.getString("categoriaCNH"));
-                    veiculo.setCPF(rs.getString("CNH"));
-                    veiculo.setIdModelo(modelodao.buscarPorId((rs.getInt("idmodelo"))));
+                    veiculo.setRenavam(rs.getString("renavam"));
+                    veiculo.setAno(rs.getInt("ano"));
+                    veiculo.setFoto(rs.getString("foto"));
+                    veiculo.setTipoDeCombustivel(rs.getString("tipodecombustivel"));
+                    veiculo.setKilometragemAtual(rs.getDouble("kilometragematual"));
+                    veiculo.setCPF(rs.getString("cpf"));
+                    veiculo.setIdModelo(modeloDAO.buscarPorId((rs.getInt("idmodelo"))).getId());
                     return veiculo;
                 }
+            } catch (Exception e) {
             }
         }
         return null;

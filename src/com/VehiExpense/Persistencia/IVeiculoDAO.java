@@ -13,8 +13,15 @@ import java.util.ArrayList;
  * @author Canto
  */
 public interface IVeiculoDAO {
+
     public void inserir(Veiculo veiculo) throws SQLException;
+
     public void excluir(Veiculo veiculo) throws SQLException;
+
     public ArrayList<Veiculo> listaVeiculos() throws SQLException;
-    
+
+    public Veiculo buscarPorPlaca(String placa) throws SQLException;
+
+    public void atualizar(Veiculo veiculo) throws SQLException;
+
 }
