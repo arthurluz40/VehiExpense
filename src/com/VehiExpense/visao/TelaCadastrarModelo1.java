@@ -79,7 +79,7 @@ setLocationRelativeTo(null);
         jButtonDeletar = new javax.swing.JButton();
         jButtonAlterar = new javax.swing.JButton();
         jButtonIncluir = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jButtonBuscar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableCadastrarModelo = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
@@ -155,10 +155,10 @@ setLocationRelativeTo(null);
             }
         });
 
-        jButton1.setText("Buscar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonBuscar.setText("Buscar");
+        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonBuscarActionPerformed(evt);
             }
         });
 
@@ -174,7 +174,7 @@ setLocationRelativeTo(null);
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonDeletar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(jButtonBuscar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -185,7 +185,7 @@ setLocationRelativeTo(null);
                     .addComponent(jButtonDeletar)
                     .addComponent(jButtonAlterar)
                     .addComponent(jButtonIncluir)
-                    .addComponent(jButton1))
+                    .addComponent(jButtonBuscar))
                 .addContainerGap())
         );
 
@@ -298,7 +298,7 @@ setLocationRelativeTo(null);
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(150, 150, 150)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addComponent(jButtonMenu)
                 .addGap(20, 20, 20))
         );
@@ -438,7 +438,7 @@ setLocationRelativeTo(null);
         }
     }//GEN-LAST:event_jButtonDeletarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         // TODO add your handling code here:
         JFileChooser fc = new JFileChooser();
             File logo = new File("./src/com/VehiExpense/modelosPNG");
@@ -456,7 +456,7 @@ setLocationRelativeTo(null);
             iconLogo.setImage(iconLogo.getImage().getScaledInstance(jLabelLogo.getWidth(),
             jLabelLogo.getHeight(), 1));
             jLabelLogo.setIcon(iconLogo);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     private void jButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuActionPerformed
         // TODO add your handling code here:
@@ -525,8 +525,8 @@ setLocationRelativeTo(null);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAlterar;
+    private javax.swing.JButton jButtonBuscar;
     private javax.swing.JButton jButtonDeletar;
     private javax.swing.JButton jButtonIncluir;
     private javax.swing.JButton jButtonMenu;

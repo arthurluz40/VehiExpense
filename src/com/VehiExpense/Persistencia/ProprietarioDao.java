@@ -29,7 +29,7 @@ public class ProprietarioDAO implements IProprietarioDAO{
     public void inserir(Proprietario proprietario) throws SQLException {
         String sql = "INSERT INTO Proprietario (CPF, nome, email, CNH, categoriaCNH) VALUES (?, ?, ?, ?, ?)";
         try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
-            stmt.setInt(1, proprietario.getCpf());
+            stmt.setString(1, proprietario.getCpf());
             stmt.setString(2, proprietario.getNome());
             stmt.setString(3, proprietario.getEmail());
             stmt.setInt(4, proprietario.getCnh());
@@ -45,27 +45,27 @@ public class ProprietarioDAO implements IProprietarioDAO{
             stmt.setString(2, proprietario.getEmail());
             stmt.setInt(3, proprietario.getCnh());
             stmt.setString(4, proprietario.getCategoriaCnh());
-            stmt.setInt(5, proprietario.getCpf());
+            stmt.setString(5, proprietario.getCpf());
             stmt.executeUpdate();
         }
     }
 
-    public void excluir(int CPF) throws SQLException {
+    public void excluir(String CPF) throws SQLException {
         String sql = "DELETE FROM Proprietario WHERE CPF = ?";
         try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
-            stmt.setInt(1, CPF);
+            stmt.setString(1, CPF);
             stmt.executeUpdate();
         }
     }
 
-    public Proprietario buscarPorCPF(int CPF) throws SQLException {
+    public Proprietario buscarPorCPF(String CPF) throws SQLException {
         String sql = "SELECT * FROM Proprietario WHERE CPF = ?";
         try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
-            stmt.setInt(1, CPF);
+            stmt.setString(1, CPF);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
                     Proprietario proprietario = new Proprietario();
-                    proprietario.setCpf(rs.getInt("CPF"));
+                    proprietario.setCpf(rs.getString("CPF"));
                     proprietario.setNome(rs.getString("nome"));
                     proprietario.setEmail(rs.getString("email"));
                     proprietario.setCnh(rs.getInt("CNH"));
@@ -83,7 +83,7 @@ public class ProprietarioDAO implements IProprietarioDAO{
         try (PreparedStatement stmt = conexao.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
                 Proprietario proprietario = new Proprietario();
-                proprietario.setCpf(rs.getInt("CPF"));
+                proprietario.setCpf(rs.getString("CPF"));
                 proprietario.setNome(rs.getString("nome"));
                 proprietario.setEmail(rs.getString("email"));
                 proprietario.setCnh(rs.getInt("CNH"));

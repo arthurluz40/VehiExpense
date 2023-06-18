@@ -218,7 +218,7 @@ public class TelaCadastroProprietarioPF extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
         Proprietario proprietario = new Proprietario();
-        proprietario.setCpf(Integer.parseInt(jTextFieldCPF.getText()));
+        proprietario.setCpf(jTextFieldCPF.getText());
         proprietario.setNome(jTextFieldNome.getText());
         proprietario.setEmail(jTextFieldEmail.getText());
         proprietario.setCnh(Integer.parseInt(jTextFieldCNH.getText()));

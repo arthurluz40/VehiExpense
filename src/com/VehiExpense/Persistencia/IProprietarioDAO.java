@@ -16,7 +16,7 @@ import java.util.List;
 public interface IProprietarioDAO {
     public void inserir(Proprietario proprietario) throws SQLException;
     public void atualizar(Proprietario proprietario) throws SQLException;
-    public void excluir(int CPF) throws SQLException;
-    public Proprietario buscarPorCPF(int CPF) throws SQLException;
+    public void excluir(String CPF) throws SQLException;
+    public Proprietario buscarPorCPF(String CPF) throws SQLException;
     public ArrayList<Proprietario> listarTodos() throws SQLException;
 }

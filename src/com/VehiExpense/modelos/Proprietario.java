@@ -1,17 +1,17 @@
 package com.VehiExpense.modelos;
 
 public class Proprietario {
-    private int cpf;
+    private String cpf;
     private String nome;
     private String email;
     private int cnh;
     private String categoriaCnh;
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
