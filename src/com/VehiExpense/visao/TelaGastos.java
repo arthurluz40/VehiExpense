@@ -5,11 +5,15 @@
 package com.VehiExpense.visao;
 
 import com.VehiExpense.Persistencia.CategoriaDeGastosDAO;
+import com.VehiExpense.Persistencia.GastosDAO;
+import com.VehiExpense.Persistencia.IGastosDAO;
+import com.VehiExpense.Persistencia.VeiculoDAO;
 import com.VehiExpense.modelos.CategoriaDeGastos;
+import com.VehiExpense.modelos.Gastos;
+import com.VehiExpense.modelos.Veiculo;
 import java.util.ArrayList;
-import java.util.List;
-
-
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -25,29 +29,60 @@ public class TelaGastos extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         // Adicionar valores da enumeração ao JComboBox
         try {
-    CategoriaDeGastosDAO categoriaDeGastosDAO = new CategoriaDeGastosDAO();
-    ArrayList<CategoriaDeGastos> categorias = categoriaDeGastosDAO.listaCategoriaDeGastos();
+            IGastosDAO gastosDB = null;
+            gastosDB = new GastosDAO();
+            atualizarGrid(gastosDB.listaGastos());
+        } catch (Exception e) {
+        }
+        try {
 
-    // Criar um vetor para armazenar as descrições das categorias
-    String[] listaCombo = new String[categorias.size()];
+            CategoriaDeGastosDAO categoriaDeGastosDAO = new CategoriaDeGastosDAO();
+            ArrayList<CategoriaDeGastos> categorias = categoriaDeGastosDAO.listaCategoriaDeGastos();
 
-    // Preencher o vetor com as descrições das categorias
-    for (int i = 0; i < categorias.size(); i++) {
-        listaCombo[i] = categorias.get(i).getDescricaoCategoriaDeGasto();
-    }
+            // Criar um vetor para armazenar as descrições das categorias
+            String[] listaCombo = new String[categorias.size()];
 
-    // Limpar a combobox antes de adicionar os novos itens
-    jComboBoxCategoriaGastos.removeAllItems();
+            // Preencher o vetor com as descrições das categorias
+            for (int i = 0; i < categorias.size(); i++) {
+                listaCombo[i] = categorias.get(i).getId() + "- " + categorias.get(i).getDescricaoCategoriaDeGasto();
+            }
 
-    // Adicionar os itens do vetor na combobox
-    for (String descricao : listaCombo) {
-        jComboBoxCategoriaGastos.addItem(descricao);
-    }
-} catch (Exception e) {
-    // Tratar exceção
-    e.printStackTrace();
-}
-       
+            // Limpar a combobox antes de adicionar os novos itens
+            jComboBoxCategoriaGastos.removeAllItems();
+
+            // Adicionar os itens do vetor na combobox
+            for (String descricao : listaCombo) {
+                jComboBoxCategoriaGastos.addItem(descricao);
+            }
+        } catch (Exception e) {
+            // Tratar exceção
+            e.printStackTrace();
+        }
+
+        try {
+            VeiculoDAO veiculoDAO = new VeiculoDAO();
+            ArrayList<Veiculo> veiculos = veiculoDAO.listaVeiculos();
+
+            // Criar um vetor para armazenar as descrições das categorias
+            String[] listaCombo = new String[veiculos.size()];
+
+            // Preencher o vetor com as descrições das categorias
+            for (int i = 0; i < veiculos.size(); i++) {
+                listaCombo[i] = veiculos.get(i).getPlaca();
+            }
+
+            // Limpar a combobox antes de adicionar os novos itens
+            jComboBoxVeiculo.removeAllItems();
+
+            // Adicionar os itens do vetor na combobox
+            for (String descricao : listaCombo) {
+                jComboBoxVeiculo.addItem(descricao);
+            }
+        } catch (Exception e) {
+            // Tratar exceção
+            e.printStackTrace();
+        }
+
     }
 
     /**
@@ -71,10 +106,14 @@ public class TelaGastos extends javax.swing.JFrame {
         jTextFieldData = new javax.swing.JTextField();
         jComboBoxCategoriaGastos = new javax.swing.JComboBox<>();
         jButtonMenu = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBoxVeiculo = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jButtonIncluir = new javax.swing.JButton();
+        jButtonIncluir1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTableGastos = new javax.swing.JTable();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -111,7 +150,7 @@ public class TelaGastos extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxVeiculo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel7.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel7.setText("Veículo");
@@ -135,36 +174,83 @@ public class TelaGastos extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jButtonIncluir.setText("Incluir");
+        jButtonIncluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIncluirActionPerformed(evt);
+            }
+        });
+
+        jButtonIncluir1.setText("Incluir");
+        jButtonIncluir1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIncluir1ActionPerformed(evt);
+            }
+        });
+
+        jTableGastos.setBackground(new java.awt.Color(204, 204, 204));
+        jTableGastos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "descricao", "data", "valor", "placa", "idcategoria"
+            }
+        ));
+        jTableGastos.setPreferredSize(new java.awt.Dimension(225, 80));
+        jTableGastos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableGastosMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTableGastos);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButtonMenu))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(187, 187, 187)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(56, 56, 56)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldDescricaoGasto, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                            .addComponent(jComboBoxCategoriaGastos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextFieldValorGasto)
-                            .addComponent(jTextFieldData)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(jButtonMenu))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(320, 320, 320)
-                        .addComponent(jLabel2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(320, 320, 320)
+                                .addComponent(jLabel2))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(187, 187, 187)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel3)
+                                            .addComponent(jLabel4)
+                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(56, 56, 56)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jButtonIncluir)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jButtonIncluir1))
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(jTextFieldDescricaoGasto, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                                                .addComponent(jComboBoxCategoriaGastos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jTextFieldValorGasto)
+                                                .addComponent(jTextFieldData)
+                                                .addComponent(jComboBoxVeiculo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,11 +276,17 @@ public class TelaGastos extends javax.swing.JFrame {
                     .addComponent(jLabel6))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonIncluir)
+                    .addComponent(jButtonIncluir1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
                 .addComponent(jButtonMenu)
-                .addGap(31, 31, 31))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -205,7 +297,7 @@ public class TelaGastos extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 602, Short.MAX_VALUE)
         );
 
         pack();
@@ -221,6 +313,98 @@ public class TelaGastos extends javax.swing.JFrame {
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButtonMenuActionPerformed
+
+    private void jButtonIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirActionPerformed
+        try {
+//marca.buscarPorId(Integer.parseInt(ID[0])
+            String pegarID = "";
+            pegarID = (String) jComboBoxCategoriaGastos.getSelectedItem();
+            String[] ID = pegarID.split("-");
+            //System.out.println(ID[2]);
+
+            //System.out.println(ID[0]);
+            //ModeloDAO modeloDAO = new ModeloDAO();
+            //System.out.println(modeloDAO.buscarPorId(Integer.parseInt(ID[0])));
+            //String proprietario = jComboBoxProprietario.getSelectedItem().toString();
+            //String[] cpfProprietario = proprietario.split("-");
+            Gastos gastos = null;
+            gastos = new Gastos(0, jTextFieldDescricaoGasto.getText(), jTextFieldData.getText(), Double.parseDouble(jTextFieldValorGasto.getText()), jComboBoxVeiculo.getSelectedItem().toString(), Integer.parseInt(ID[0]));
+
+            IGastosDAO gastosDB = null;
+            gastosDB = new GastosDAO();
+            gastosDB.inserir(gastos);
+            atualizarGrid(gastosDB.listaGastos());
+            JOptionPane.showMessageDialog(this, "Gasto cadastrado com sucesso!");
+        } catch (Exception erro) {
+            erro.printStackTrace();
+            JOptionPane.showMessageDialog(this, erro.getMessage());
+        }
+    }//GEN-LAST:event_jButtonIncluirActionPerformed
+
+    private void jButtonIncluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluir1ActionPerformed
+        try {
+            IGastosDAO gastosDB = null;
+            gastosDB = new GastosDAO();
+            atualizarGrid(gastosDB.listaGastos());
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, e.getMessage());
+            
+        }
+
+
+    }//GEN-LAST:event_jButtonIncluir1ActionPerformed
+
+    private void jTableGastosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableGastosMouseClicked
+        //jTextFieldID.setText(jTableGastos.getValueAt(jTableGastos.getSelectedRow(), 0).toString());
+      //  jTextFieldModelo.setText(jTableGastos.getValueAt(jTableGastos.getSelectedRow(), 1).toString());
+     //   jTextFieldUrl.setText(jTableGastos.getValueAt(jTableGastos.getSelectedRow(), 2).toString());
+    }//GEN-LAST:event_jTableGastosMouseClicked
+
+    /* private void atualizarGrid(ArrayList<Gastos> listaGastos) {
+        try {
+            DefaultTableModel model = (DefaultTableModel) jTableGastos.getModel();
+            model.setNumRows(0);
+            for (int pos = 0; pos < listaGastos.size(); pos++) {
+                Gastos gastos = listaGastos.get(pos);
+                //ModeloDAO modelo = new ModeloDAO();
+
+                String[] linha = new String[6];
+                linha[0] = Integer.toString(gastos.getId());
+                linha[1] = gastos.getDescricao();
+                linha[2] = gastos.getData();
+                linha[3] = Double.toString(gastos.getValor());
+                linha[4] = gastos.getPlaca();
+                linha[5] = Integer.toString(gastos.getIdCategoria());
+
+                model.addRow(linha);
+            }
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, erro.getMessage());
+        }
+    }
+     */
+    private void atualizarGrid(ArrayList<Gastos> listaGastos) {
+        try {
+            DefaultTableModel model = (DefaultTableModel) jTableGastos.getModel();
+            model.setNumRows(0);
+            for (int pos = 0; pos < listaGastos.size(); pos++) {
+                Gastos gastos = listaGastos.get(pos);
+
+                String[] linha = new String[6];
+                linha[0] = Integer.toString(gastos.getId());
+                linha[1] = gastos.getDescricao();
+                linha[2] = gastos.getData();
+                linha[3] = Double.toString(gastos.getValor());
+                linha[4] = gastos.getPlaca();
+                linha[5] = Integer.toString(gastos.getIdCategoria());
+
+                model.addRow(linha);
+            }
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(rootPane, erro.getMessage());
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -258,9 +442,11 @@ public class TelaGastos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonIncluir;
+    private javax.swing.JButton jButtonIncluir1;
     private javax.swing.JButton jButtonMenu;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBoxCategoriaGastos;
+    private javax.swing.JComboBox<String> jComboBoxVeiculo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -271,6 +457,8 @@ public class TelaGastos extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTableGastos;
     private javax.swing.JTextField jTextFieldData;
     private javax.swing.JTextField jTextFieldDescricaoGasto;
     private javax.swing.JTextField jTextFieldValorGasto;
